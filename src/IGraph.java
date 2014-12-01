@@ -6,6 +6,4 @@ public interface IGraph {
     double getEdgeWeight(final int u, final int v);
 
     void addEdge(final int u, final int v, final double weight);
-
-    void draw();
 }

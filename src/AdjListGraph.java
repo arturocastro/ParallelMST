@@ -25,7 +25,7 @@ public class AdjListGraph implements IGraph {
 
     AdjListGraph(int nu) {
         _n = nu;
-        _adj = (List<Edge>[]) new List[_n];
+        _adj = new List[_n];
 
         for(List<Edge> l : _adj) {
             l = new ArrayList<Edge>();
@@ -41,8 +41,8 @@ public class AdjListGraph implements IGraph {
 
             _adj = (List<Edge>[]) new List[_n];
 
-            for(List<Edge> l : _adj) {
-                l = new ArrayList<Edge>();
+            for (int i = 0; i < _n; ++i) {
+                _adj[i] = new ArrayList<Edge>(_n);
             }
 
             String line;
@@ -52,11 +52,11 @@ public class AdjListGraph implements IGraph {
 
                 String [] toks = line.split("\\s+");
 
-                int u1 = Integer.parseInt(toks[0]);
-                int u2 = Integer.parseInt(toks[1]);
-                double w = Integer.parseInt(toks[2]);
+                int u = Integer.parseInt(toks[0]);
+                int v = Integer.parseInt(toks[1]);
+                double w = Double.parseDouble(toks[2]);
 
-
+                addEdge(u, v, w);
             }
         }
         catch (FileNotFoundException ex) {
@@ -83,7 +83,19 @@ public class AdjListGraph implements IGraph {
     }
 
     @Override
-    public void draw() {
+    public String toString() {
+        StringBuilder strBld = new StringBuilder("graph G{");
 
+        for (int i = 0; i < _n; ++i) {
+            List<Edge> currNode = _adj[i];
+
+            for (int j = 0; j < currNode.size(); ++j) {
+                strBld.append("n").append(Integer.toString(i)).append(" -- n").append(Integer.toString(currNode.get(j)._v)).append(";");
+            }
+        }
+
+        strBld.append("}");
+
+        return strBld.toString();
     }
 }
