@@ -3,6 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -10,22 +11,13 @@ import java.util.List;
  */
 
 public class AdjListGraph implements IGraph {
-    private class Edge {
-        int _v;
-        double _weight;
-
-        Edge(final int v, final double weight) {
-            _v = v;
-            _weight = weight;
-        }
-    }
-
-    int _n;
+    int _num_v;
+    int _num_e;
     List<Edge>[] _adj;
 
     AdjListGraph(int nu) {
-        _n = nu;
-        _adj = new List[_n];
+        _num_v = nu;
+        _adj = new List[_num_v];
 
         for(List<Edge> l : _adj) {
             l = new ArrayList<Edge>();
@@ -36,25 +28,25 @@ public class AdjListGraph implements IGraph {
         try {
             BufferedReader in = new BufferedReader(new FileReader(file));
 
-            _n = Integer.parseInt(in.readLine());
-            int nv = Integer.parseInt(in.readLine());
+            _num_v = Integer.parseInt(in.readLine());
+            _num_e = Integer.parseInt(in.readLine());
 
-            _adj = (List<Edge>[]) new List[_n];
+            _adj = (List<Edge>[]) new List[_num_v];
 
-            for (int i = 0; i < _n; ++i) {
-                _adj[i] = new ArrayList<Edge>(_n);
+            for (int i = 0; i < _num_v; ++i) {
+                _adj[i] = new ArrayList<Edge>(_num_e);
             }
 
             String line;
 
-            for (int i = 0; i < nv; ++i) {
+            for (int i = 0; i < _num_e; ++i) {
                 line = in.readLine();
 
-                String [] toks = line.split("\\s+");
+                String [] tokens = line.split("\\s+");
 
-                int u = Integer.parseInt(toks[0]);
-                int v = Integer.parseInt(toks[1]);
-                double w = Double.parseDouble(toks[2]);
+                int u = Integer.parseInt(tokens[0]);
+                int v = Integer.parseInt(tokens[1]);
+                double w = Double.parseDouble(tokens[2]);
 
                 addEdge(u, v, w);
             }
@@ -79,14 +71,14 @@ public class AdjListGraph implements IGraph {
 
     @Override
     public void addEdge(final int u, final int v, final double weight) {
-        _adj[u].add(new Edge(v, weight));
+        _adj[u].add(new Edge(u, v, weight));
     }
 
     @Override
     public String toString() {
         StringBuilder strBld = new StringBuilder("graph G{");
 
-        for (int i = 0; i < _n; ++i) {
+        for (int i = 0; i < _num_v; ++i) {
             List<Edge> currNode = _adj[i];
 
             for (int j = 0; j < currNode.size(); ++j) {
@@ -97,5 +89,54 @@ public class AdjListGraph implements IGraph {
         strBld.append("}");
 
         return strBld.toString();
+    }
+
+    @Override
+    public Iterator<Edge> iterator() {
+        Iterator<Edge> it = new Iterator<Edge>() {
+            int currU = 0;
+            int currV = 0;
+
+            @Override
+            public boolean hasNext() {
+                if (currV < _adj[currU].size()) {
+                    return true;
+                }
+
+                int u = currU + 1;
+
+                while(u < _adj.length) {
+                    if (!_adj[u].isEmpty()) {
+                        return true;
+                    }
+
+                    ++u;
+                }
+
+                return false;
+            }
+
+            @Override
+            public Edge next() {
+                if (currV < _adj[currU].size()) {
+                    return _adj[currU].get(currV++);
+                }
+
+                ++currU;
+
+                while(currU < _adj.length) {
+                    if (!_adj[currU].isEmpty()) {
+                        currV = 1;
+                        return _adj[currU].get(0);
+                    }
+
+                    ++currU;
+                }
+
+                return null;
+            }
+        };
+
+        return it;
     }
 }

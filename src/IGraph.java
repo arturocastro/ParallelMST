@@ -1,7 +1,9 @@
+import java.util.Iterator;
+
 /**
  * Created by Soluna on 29/11/2014.
  */
-public interface IGraph {
+public interface IGraph extends Iterable<Edge>  {
     int getNumVertices();
     double getEdgeWeight(final int u, final int v);
 
