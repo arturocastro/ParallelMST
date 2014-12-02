@@ -31,7 +31,7 @@ public class AdjListGraph implements IGraph {
             _num_v = Integer.parseInt(in.readLine());
             _num_e = Integer.parseInt(in.readLine());
 
-            _adj = (List<Edge>[]) new List[_num_v];
+            _adj = new List[_num_v];
 
             for (int i = 0; i < _num_v; ++i) {
                 _adj[i] = new ArrayList<Edge>(_num_e);
@@ -49,6 +49,7 @@ public class AdjListGraph implements IGraph {
                 double w = Double.parseDouble(tokens[2]);
 
                 addEdge(u, v, w);
+                addEdge(v, u, w);
             }
         }
         catch (FileNotFoundException ex) {
@@ -78,12 +79,8 @@ public class AdjListGraph implements IGraph {
     public String toString() {
         StringBuilder strBld = new StringBuilder("graph G{");
 
-        for (int i = 0; i < _num_v; ++i) {
-            List<Edge> currNode = _adj[i];
-
-            for (int j = 0; j < currNode.size(); ++j) {
-                strBld.append("n").append(Integer.toString(i)).append(" -- n").append(Integer.toString(currNode.get(j)._v)).append(";");
-            }
+        for (Edge e : this) {
+            strBld.append(e.toString());
         }
 
         strBld.append("}");
@@ -134,6 +131,28 @@ public class AdjListGraph implements IGraph {
                 }
 
                 return null;
+            }
+        };
+
+        return it;
+    }
+
+    public Iterator<Integer> iterateNeighbors(final int u) {
+        Iterator<Integer> it = new Iterator<Integer>() {
+            int currIdx = 0;
+
+            @Override
+            public boolean hasNext() {
+                if (currIdx  < _adj[u].size()) {
+                    return true;
+                }
+
+                return false;
+            }
+
+            @Override
+            public Integer next() {
+                return _adj[u].get(currIdx++)._v;
             }
         };
 

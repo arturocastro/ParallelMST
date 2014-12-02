@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.PriorityQueue;
 
 /**
@@ -11,15 +12,32 @@ public class Prim {
         int [] priorities = new int[n];
         Arrays.fill(priorities, -1);
 
-        int [] keys = new int[n];
+        double [] keys = new double[n];
         Arrays.fill(keys, Integer.MAX_VALUE);
 
-        keys[0] = 0;
+        keys[0] = 0.0;
 
-        PriorityQueue<Edge> pq = new PriorityQueue<Edge>(n);
+        PriorityQueue<SimpleHash> pq = new PriorityQueue<SimpleHash>(n);
+
+        boolean [] inQueue = new boolean[n];
+        Arrays.fill(inQueue, true);
 
         for (int i = 0; i < n; ++i) {
-            //pq.add()
+            pq.add(new SimpleHash(i, keys[i]));
+        }
+
+        while (!pq.isEmpty()) {
+            int u = pq.poll().v;
+
+
+
+            for (Edge e : g) {
+                for (int i = 0; i < keys.length; ++i) {
+                    if (e._v == keys[i]) {
+
+                    }
+                }
+            }
         }
 
         return g;
