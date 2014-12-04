@@ -62,12 +62,12 @@ public class AdjListGraph implements IGraph {
 
     @Override
     public int getNumVertices() {
-        return 0;
+        return _num_v;
     }
 
     @Override
     public double getEdgeWeight(final int u, final int v) {
-        return _adj[u].get(v)._weight;
+        return _adj[u].
     }
 
     @Override

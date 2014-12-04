@@ -1,5 +1,5 @@
 import java.util.Arrays;
-import java.util.HashMap;
+import java.util.Iterator;
 import java.util.PriorityQueue;
 
 /**
@@ -9,11 +9,11 @@ public class Prim {
     public static IGraph prim(IGraph g) {
         final int n = g.getNumVertices();
 
-        int [] priorities = new int[n];
-        Arrays.fill(priorities, -1);
+        int [] pred = new int[n];
+        Arrays.fill(pred, -1);
 
         double [] keys = new double[n];
-        Arrays.fill(keys, Integer.MAX_VALUE);
+        Arrays.fill(keys, (double)Integer.MAX_VALUE);
 
         keys[0] = 0.0;
 
@@ -28,13 +28,23 @@ public class Prim {
 
         while (!pq.isEmpty()) {
             int u = pq.poll().v;
+            inQueue[u] = false;
 
+            for (Iterator<Integer> it = g.iterateNeighbors(u); it.hasNext();) {
+                int v = it.next();
 
+                if (inQueue[v]) {
+                    double w = g.getEdgeWeight(u, v);
 
-            for (Edge e : g) {
-                for (int i = 0; i < keys.length; ++i) {
-                    if (e._v == keys[i]) {
+                    if (w < keys[u]) {
+                        pred[v] = u;
+                        keys[v] = w;
 
+                        for (SimpleHash pair : pq) {
+                            if (pair.v == v) {
+                                pair.key = w;
+                            }
+                        }
                     }
                 }
             }
