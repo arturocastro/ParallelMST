@@ -5,17 +5,17 @@ import java.util.PriorityQueue;
 /**
  * Created by Soluna on 01/12/2014.
  */
-public class Prim {
+public class MST {
     public static IGraph prim(IGraph g) {
         final int n = g.getNumVertices();
 
         int [] pred = new int[n];
         Arrays.fill(pred, -1);
 
-        double [] keys = new double[n];
-        Arrays.fill(keys, (double)Integer.MAX_VALUE);
+        double [] key = new double[n];
+        Arrays.fill(key, (double)Integer.MAX_VALUE);
 
-        keys[0] = 0.0;
+        key[0] = 0.0;
 
         PriorityQueue<SimpleHash> pq = new PriorityQueue<SimpleHash>(n);
 
@@ -23,26 +23,32 @@ public class Prim {
         Arrays.fill(inQueue, true);
 
         for (int i = 0; i < n; ++i) {
-            pq.add(new SimpleHash(i, keys[i]));
+            pq.add(new SimpleHash(i, key[i]));
         }
 
         while (!pq.isEmpty()) {
+            // Get minimum key
             int u = pq.poll().v;
             inQueue[u] = false;
 
+            // For each of u's neighbors
             for (Iterator<Integer> it = g.iterateNeighbors(u); it.hasNext();) {
                 int v = it.next();
 
+                // if PQ contains v
                 if (inQueue[v]) {
                     double w = g.getEdgeWeight(u, v);
 
-                    if (w < keys[u]) {
+                    if (w < key[v]) {
                         pred[v] = u;
-                        keys[v] = w;
+                        key[v] = w;
 
                         for (SimpleHash pair : pq) {
                             if (pair.v == v) {
                                 pair.key = w;
+                                pq.add(pq.poll());
+
+                                break;
                             }
                         }
                     }
@@ -51,5 +57,9 @@ public class Prim {
         }
 
         return g;
+    }
+
+    public static void boruvska(IGraph g) {
+
     }
 }

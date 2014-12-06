@@ -67,7 +67,13 @@ public class AdjListGraph implements IGraph {
 
     @Override
     public double getEdgeWeight(final int u, final int v) {
-        return _adj[u].
+        for (Edge e : _adj[u]) {
+            if (e._v == v && e._u == u) {
+                return e._weight;
+            }
+        }
+
+        return -1;
     }
 
     @Override
