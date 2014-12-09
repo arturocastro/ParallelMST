@@ -19,8 +19,8 @@ public class AdjListGraph implements IGraph {
         _num_vertexes = num_vertexes;
         _adj = new List[_num_vertexes];
 
-        for(List<Edge> l : _adj) {
-            l = new ArrayList<Edge>(num_edges);
+        for(int i = 0; i < _num_vertexes; ++i) {
+            _adj[i] = new ArrayList<Edge>(num_edges);
         }
     }
 
@@ -142,6 +142,11 @@ public class AdjListGraph implements IGraph {
 
                 return null;
             }
+
+            @Override
+            public void remove() {
+
+            }
         };
 
         return it;
@@ -163,6 +168,11 @@ public class AdjListGraph implements IGraph {
             @Override
             public Integer next() {
                 return _adj[u].get(currIdx++)._v;
+            }
+
+            @Override
+            public void remove() {
+
             }
         };
 

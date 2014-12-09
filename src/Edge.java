@@ -14,7 +14,9 @@ class Edge {
     }
 
     public Edge(final int u, final int v) {
-
+        _u = u;
+        _v = v;
+        _weight = StdRandom.uniform() * 1000;
     }
 
     @Override

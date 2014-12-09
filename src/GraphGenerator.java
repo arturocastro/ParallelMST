@@ -24,7 +24,8 @@
 
 /* Modified by Arturo Isai Castro Perpuli */
 
-import java.util.TreeSet;
+import java.util.Set;
+import java.util.HashSet;
 
 public class GraphGenerator {
 //    private static final class Edge implements Comparable<Edge> {
@@ -61,14 +62,14 @@ public class GraphGenerator {
         if (E > (long) V*(V-1)/2) throw new IllegalArgumentException("Too many edges");
         if (E < 0)                throw new IllegalArgumentException("Too few edges");
         IGraph G = new AdjListGraph(V, E);
-        TreeSet<Edge> set = new TreeSet<Edge>();
+        Set<Edge> set = new HashSet<Edge>();
         while (G.getNumEdges() < E) {
             int v = StdRandom.uniform(V);
             int w = StdRandom.uniform(V);
             Edge e = new Edge(v, w);
             if ((v != w) && !set.contains(e)) {
                 set.add(e);
-                G.addEdge(v, w);
+                G.addEdge(e._u, e._v, e._weight);
             }
         }
         return G;
@@ -84,14 +85,16 @@ public class GraphGenerator {
      *     any two vertices with probability <tt>p</tt>
      * @throws IllegalArgumentException if probability is not between 0 and 1
      */
-    public static Graph simple(int V, double p) {
+    public static IGraph simple(int V, double p) {
         if (p < 0.0 || p > 1.0)
             throw new IllegalArgumentException("Probability must be between 0 and 1");
-        Graph G = new Graph(V);
+        IGraph G = new AdjListGraph(V, 0);
         for (int v = 0; v < V; v++)
             for (int w = v+1; w < V; w++)
-                if (StdRandom.bernoulli(p))
-                    G.addEdge(v, w);
+                if (StdRandom.bernoulli(p)) {
+                    Edge e = new Edge(v, w);
+                    G.addEdge(e._u, e._v, e._weight);
+                }
         return G;
     }
 
@@ -100,7 +103,7 @@ public class GraphGenerator {
      * @param V the number of vertices
      * @return the complete graph on <tt>V</tt> vertices
      */
-    public static Graph complete(int V) {
+    public static IGraph complete(int V) {
         return simple(V, 1.0);
     }
 
@@ -111,7 +114,7 @@ public class GraphGenerator {
      * @param V the number of vertices in the graph
      * @return a uniformly random <tt>k</tt>-regular graph on <tt>V</tt> vertices.
      */
-    public static Graph regular(int V, int k) {
+   /* public static IGraph regular(int V, int k) {
         if (V*k % 2 != 0) throw new IllegalArgumentException("Number of vertices * k must be even");
         Graph G = new Graph(V);
 
@@ -129,7 +132,7 @@ public class GraphGenerator {
             G.addEdge(vertices[2*i], vertices[2*i + 1]);
         }
         return G;
-    }
+    }*/
 
     // http://www.proofwiki.org/wiki/Labeled_Tree_from_Prüfer_Sequence
     // http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.36.6484&rep=rep1&type=pdf
@@ -199,9 +202,9 @@ public class GraphGenerator {
         StdOut.println(simple(V, p));
         StdOut.println();
 
-        StdOut.println("4-regular");
+        /*StdOut.println("4-regular");
         StdOut.println(regular(V, 4));
-        StdOut.println();
+        StdOut.println();*/
     }
 
 }
