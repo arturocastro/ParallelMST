@@ -5,6 +5,7 @@ import java.util.Iterator;
  */
 public interface IGraph extends Iterable<Edge> {
     int getNumVertices();
+    int getNumEdges();
     double getEdgeWeight(final int u, final int v);
 
     void addEdge(final int u, final int v, final double weight);

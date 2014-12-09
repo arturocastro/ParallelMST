@@ -11,16 +11,16 @@ import java.util.List;
  */
 
 public class AdjListGraph implements IGraph {
-    int _num_v;
-    int _num_e;
-    List<Edge>[] _adj;
+    int _num_vertexes;
+    int num_edges;
+    List<Edge> [] _adj;
 
-    AdjListGraph(int nu) {
-        _num_v = nu;
-        _adj = new List[_num_v];
+    AdjListGraph(final int num_vertexes, final int num_edges) {
+        _num_vertexes = num_vertexes;
+        _adj = new List[_num_vertexes];
 
         for(List<Edge> l : _adj) {
-            l = new ArrayList<Edge>();
+            l = new ArrayList<Edge>(num_edges);
         }
     }
 
@@ -28,18 +28,18 @@ public class AdjListGraph implements IGraph {
         try {
             BufferedReader in = new BufferedReader(new FileReader(file));
 
-            _num_v = Integer.parseInt(in.readLine());
-            _num_e = Integer.parseInt(in.readLine());
+            _num_vertexes = Integer.parseInt(in.readLine());
+            final int num_edges = Integer.parseInt(in.readLine());
 
-            _adj = new List[_num_v];
+            _adj = new List[_num_vertexes];
 
-            for (int i = 0; i < _num_v; ++i) {
-                _adj[i] = new ArrayList<Edge>(_num_e);
+            for (int i = 0; i < _num_vertexes; ++i) {
+                _adj[i] = new ArrayList<Edge>(num_edges);
             }
 
             String line;
 
-            for (int i = 0; i < _num_e; ++i) {
+            for (int i = 0; i < num_edges; ++i) {
                 line = in.readLine();
 
                 String [] tokens = line.split("\\s+");
@@ -62,8 +62,11 @@ public class AdjListGraph implements IGraph {
 
     @Override
     public int getNumVertices() {
-        return _num_v;
+        return _num_vertexes;
     }
+
+    @Override
+    public int getNumEdges() { return num_edges; }
 
     @Override
     public double getEdgeWeight(final int u, final int v) {
@@ -79,6 +82,7 @@ public class AdjListGraph implements IGraph {
     @Override
     public void addEdge(final int u, final int v, final double weight) {
         _adj[u].add(new Edge(u, v, weight));
+        ++num_edges;
     }
 
     @Override

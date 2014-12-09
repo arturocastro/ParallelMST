@@ -13,6 +13,10 @@ class Edge {
         _weight = weight;
     }
 
+    public Edge(final int u, final int v) {
+
+    }
+
     @Override
     public String toString() {
         return (new StringBuilder("n").append(Integer.toString(_u)).append(" -- n").append(Integer.toString(_v)).append(";")).toString();
