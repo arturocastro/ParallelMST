@@ -53,10 +53,10 @@ public class AdjListGraph implements IGraph {
             }
         }
         catch (FileNotFoundException ex) {
-            Global.abort(ex.getMessage());
+            MyGlobal.abort(ex.getMessage());
         }
         catch (IOException ex) {
-            Global.abort(ex.getMessage());
+            MyGlobal.abort(ex.getMessage());
         }
     }
 

@@ -1,7 +1,7 @@
 /**
  * Created by Soluna on 30/11/2014.
  */
-public final class Global {
+public final class MyGlobal {
     public static void abort(String msg) {
         System.err.println(msg);
         System.exit(-1);
@@ -11,6 +11,10 @@ public final class Global {
         /* Graph representations: Adjacency list -->   1
                                   Adjacency matrix --> ???
          */
-        int GRAPH_REPRESENTATION = 1;
+        static final int GRAPH_REPRESENTATION = 1;
+        static int p = 1; // Num of processors
+        static int nb = 10;
+        static final long TIMEOUT_SINGLE = 10 * 60 * 1000;
+        static final long TIMEOUT_MULTI = 10 * 60 * 1000;
     }
 }
