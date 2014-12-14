@@ -19,11 +19,11 @@ public class Main {
         System.out.println(Main.class.getProtectionDomain().getCodeSource().getLocation().getFile());
         IGraph g = new AdjListGraph("C:\\Users\\Soluna\\IdeaProjects\\MST\\data\\oreilly.txt");
 
-        MST.prim(g);
+        IGraph a = MST.prim(g);
 
         IGraph g2 = GraphGenerator.simple(10, 10);
 
         System.out.println(g.toString());
-        System.out.println(g2.toString());
+        System.out.println(a.toString());
     }
 }

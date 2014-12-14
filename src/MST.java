@@ -57,7 +57,19 @@ public class MST {
             }
         }
 
-        return g;
+        IGraph mst = new AdjListGraph(g.getNumVertices(), g.getNumVertices() - 1);
+
+        for (int i = 0; i < g.getNumVertices(); ++i) {
+            if (pred[i] != -1) {
+                mst.addEdge(i, pred[i], key[i]);
+            }
+        }
+
+        if (!check(g, mst)) {
+            System.out.println("Something is wrong");
+        }
+
+        return mst;
     }
 
     public static void boruvska(IGraph g) {
@@ -92,6 +104,66 @@ public class MST {
                 MyGlobal.abort(ex.getMessage());
             }
         }
+    }
+
+    // check optimality conditions (takes time proportional to E V lg* V)
+    static boolean check(IGraph G, Iterable<Edge> mst) {
+
+        // check weight
+        double totalWeight = 0.0;
+        for (Edge e : mst) {
+            totalWeight += e._weight;
+        }
+        double EPSILON = 1E-12;
+//        if (Math.abs(totalWeight - weight()) > EPSILON) {
+//            System.err.printf("Weight of edges does not equal weight(): %f vs. %f\n", totalWeight, weight());
+//            return false;
+//        }
+
+        // check that it is acyclic
+        UF uf = new UF(G.getNumVertices());
+        for (Edge e : mst) {
+            //int v = e.either(), w = e.other(v);
+            if (uf.connected(e._u, e._v)) {
+                System.err.println("Not a forest");
+                return false;
+            }
+            uf.union(e._u, e._v);
+        }
+
+        // check that it is a spanning forest
+        for (Edge e : G) {
+            //int v = e.either(), w = e.other(v);
+            if (!uf.connected(e._u, e._v)) {
+                System.err.println("Not a spanning forest");
+                return false;
+            }
+        }
+
+        // check that it is a minimal spanning forest (cut optimality conditions)
+        for (Edge e : mst) {
+
+            // all edges in MST except e
+            uf = new UF(G.getNumVertices());
+            for (Edge f : mst) {
+                //int x = f.either(), y = f.other(x);
+                if (f != e) uf.union(f._u, f._v);
+            }
+
+            // check that e is min weight edge in crossing cut
+            for (Edge f : G) {
+                //int x = f.either(), y = f.other(x);
+                if (!uf.connected(f._u, f._v)) {
+                    if (f._weight < e._weight) {
+                        System.err.println("Edge " + f + " violates cut optimality conditions");
+                        return false;
+                    }
+                }
+            }
+
+        }
+
+        return true;
     }
 }
 
