@@ -6,6 +6,21 @@ class Edge {
     int _u;
     int _v;
     double _weight;
+    boolean _original;
+
+    public Edge(final int u, final int v) {
+        _u = u;
+        _v = v;
+        _weight = StdRandom.uniform() * 1000;
+        _original = true;
+    }
+
+    public Edge(final int u, final int v, final boolean original) {
+        _u = u;
+        _v = v;
+        _weight = StdRandom.uniform() * 1000;
+        _original = original;
+    }
 
     Edge(final int u, final int v, final double weight) {
         _u = u;
@@ -13,10 +28,11 @@ class Edge {
         _weight = weight;
     }
 
-    public Edge(final int u, final int v) {
+    Edge(final int u, final int v, final double weight, final boolean original) {
         _u = u;
         _v = v;
-        _weight = StdRandom.uniform() * 1000;
+        _weight = weight;
+        _original = original;
     }
 
     @Override

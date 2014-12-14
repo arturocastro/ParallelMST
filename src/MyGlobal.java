@@ -16,5 +16,7 @@ public final class MyGlobal {
         static int nb = 10;
         static final long TIMEOUT_SINGLE = 10 * 60 * 1000;
         static final long TIMEOUT_MULTI = 10 * 60 * 1000;
+        static int verbose = 0;
+        static int debug = 0;
     }
 }

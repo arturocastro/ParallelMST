@@ -12,7 +12,7 @@ import java.util.List;
 
 public class AdjListGraph implements IGraph {
     int _num_vertexes;
-    int num_edges;
+    int _num_edges;
     List<Edge> [] _adj;
 
     AdjListGraph(final int num_vertexes, final int num_edges) {
@@ -49,7 +49,7 @@ public class AdjListGraph implements IGraph {
                 double w = Double.parseDouble(tokens[2]);
 
                 addEdge(u, v, w);
-                addEdge(v, u, w);
+                //addEdge(v, u, w, false);
             }
         }
         catch (FileNotFoundException ex) {
@@ -66,7 +66,7 @@ public class AdjListGraph implements IGraph {
     }
 
     @Override
-    public int getNumEdges() { return num_edges; }
+    public int getNumEdges() { return _num_edges; }
 
     @Override
     public double getEdgeWeight(final int u, final int v) {
@@ -81,8 +81,9 @@ public class AdjListGraph implements IGraph {
 
     @Override
     public void addEdge(final int u, final int v, final double weight) {
-        _adj[u].add(new Edge(u, v, weight));
-        ++num_edges;
+        _adj[u].add(new Edge(u, v, weight, true));
+        _adj[u].add(new Edge(u, v, weight, false));
+        ++_num_edges;
     }
 
     @Override
@@ -107,14 +108,27 @@ public class AdjListGraph implements IGraph {
             @Override
             public boolean hasNext() {
                 if (currV < _adj[currU].size()) {
-                    return true;
+                    for (int v = currV; v < _adj[currU].size(); ++v) {
+                        if (_adj[currU].get(v)._original) {
+                            currV = v;
+
+                            return true;
+                        }
+                    }
                 }
 
                 int u = currU + 1;
 
                 while(u < _adj.length) {
                     if (!_adj[u].isEmpty()) {
-                        return true;
+                        for (int v = 0; v < _adj[u].size(); ++v) {
+                            if (_adj[u].get(v)._original) {
+                                currU = u;
+                                currV = v;
+
+                                return true;
+                            }
+                        }
                     }
 
                     ++u;
@@ -125,22 +139,7 @@ public class AdjListGraph implements IGraph {
 
             @Override
             public Edge next() {
-                if (currV < _adj[currU].size()) {
-                    return _adj[currU].get(currV++);
-                }
-
-                ++currU;
-
-                while(currU < _adj.length) {
-                    if (!_adj[currU].isEmpty()) {
-                        currV = 1;
-                        return _adj[currU].get(0);
-                    }
-
-                    ++currU;
-                }
-
-                return null;
+                return _adj[currU].get(currV++);
             }
 
             @Override
@@ -177,5 +176,19 @@ public class AdjListGraph implements IGraph {
         };
 
         return it;
+    }
+
+    @Override
+    public Edge getLightestIncidentEdge(final int u) {
+        double minWeight = (double)Integer.MAX_VALUE;
+        Edge minEdge = null;
+
+        for (Edge e : _adj[u]) {
+            if (e._weight < minWeight) {
+                minEdge = e;
+            }
+        }
+
+        return minEdge;
     }
 }

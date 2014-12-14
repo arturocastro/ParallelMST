@@ -64,19 +64,19 @@ public class MST {
 
     }
 
-    public static void parallelFast(IGraph g) {
+    public static void cong(IGraph g) {
         final int n = g.getNumVertices();
 
         AtomicIntegerArray color = new AtomicIntegerArray(n);
         AtomicIntegerArray visited = new AtomicIntegerArray(n);
 
-        ParallelFastThread [] thread = new ParallelFastThread[MyGlobal.Config.p];
+        CongThread[] thread = new CongThread[MyGlobal.Config.p];
 
         for (int i = 0; i < MyGlobal.Config.p; ++i) {
             final int left = i * n / MyGlobal.Config.p;
             final int right = (i + 1) * n / MyGlobal.Config.p;
 
-            thread[i] = new ParallelFastThread(left, right, color, visited, g, i);
+            thread[i] = new CongThread(left, right, color, visited, g, i);
 
             thread[i].start();
         }
@@ -95,7 +95,7 @@ public class MST {
     }
 }
 
-final class ParallelFastThread extends Thread {
+final class CongThread extends Thread {
     final int _leftV;
     final int _rightV;
 
@@ -111,7 +111,7 @@ final class ParallelFastThread extends Thread {
     int [] _pred;
     double [] _key;
 
-    public ParallelFastThread(final int leftV, final int rightV, AtomicIntegerArray color, AtomicIntegerArray visited, IGraph g, int p) {
+    public CongThread(final int leftV, final int rightV, AtomicIntegerArray color, AtomicIntegerArray visited, IGraph g, int p) {
         _leftV = leftV;
         _rightV = rightV;
         _color = color;
@@ -137,24 +137,70 @@ final class ParallelFastThread extends Thread {
     }
 
     void parallel1() {
-        while (/*n > nb*/true) {
+        int n = _g.getNumVertices();
+        Edge [] closest = new Edge[_g.getNumVertices()];
+
+        UF uf = new UF(_g.getNumVertices());
+
+        // "Epochs"
+        while (n > MyGlobal.Config.nb) {
             // 1
-//            for (int v = _leftV; v < _rightV; ++v) {
-//                _color[v] = _visited[v] = 0;
-//            }
+            for (int v = _leftV; v < _rightV; ++v) {
+                _color.set(v, 0);
+                _visited.set(v, 0);
+            }
 
             // 2
             parallel2();
 
             // 3
-            for (int v = _leftV; v < _rightV; ++v) {
-                if (_visited.get(v) == 0) {
-                    // find lightest incident edge e to v, label e to be in MST
+            for (Edge e : _g) {
+                int i = uf.find(e._u);
+                int j = uf.find(e._v);
+
+                if (i == j) {
+                    // same tree
+                    continue;
+                }
+
+                if (closest[i] == null || e._weight < closest[i]._weight) {
+                    closest[i] = e;
+                }
+
+                if (closest[j] == null || e._weight < closest[j]._weight) {
+                    closest[j] = e;
                 }
             }
 
-            // 4
+//            for (int v = _leftV; v < _rightV; ++v) {
+//                if (_visited.get(v) == 0) {
+//                    // find lightest incident edge e to v, label e to be in MST
+//                    min[v] = _g.getLightestIncidentEdge(v);
+//                }
+//            }
+
+            // 4 (and 5?)
+            // add newly discovered edges to MST
+            for (int i = _leftV; i < _rightV; ++i) {
+                Edge e = closest[i];
+                if (e != null) {
+                    // don't add the same edge twice
+                    if (!uf.connected(e._u, e._v)) {
+                        //mst.add(e);
+                        System.out.println(e.toString());
+                        //weight += e._weight;
+                        uf.union(e._u, e._v);
+                    }
+                }
+            }
+
+            // 5
+
+            // 6
+            n = uf.count();
         }
+
+        // 7
     }
 
     public void parallel2() {
@@ -185,6 +231,7 @@ final class ParallelFastThread extends Thread {
                 _inQueue[w] = false;
 
                 if (_color.get(w) != myColor /*or something-something*/) {
+                    // go to next in for loop
                     break;
                 }
 

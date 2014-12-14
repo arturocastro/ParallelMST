@@ -11,4 +11,6 @@ public interface IGraph extends Iterable<Edge> {
     void addEdge(final int u, final int v, final double weight);
 
     public Iterator<Integer> iterateNeighbors(final int u);
+
+    public Edge getLightestIncidentEdge(final int u);
 }
