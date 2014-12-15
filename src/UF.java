@@ -91,6 +91,8 @@
  *  @author Kevin Wayne
  */
 
+/* Modified by Arturo Isai Castro Perpuli */
+
 public class UF {
     private int[] id;     // id[i] = parent of i
     private byte[] rank;  // rank[i] = rank of subtree rooted at i (cannot be more than 31)
@@ -128,6 +130,15 @@ public class UF {
         return p;
     }
 
+    public int findSafe(int p) {
+        if (p < 0 || p >= id.length) throw new IndexOutOfBoundsException();
+        while (p != id[p]) {
+            //id[p] = id[id[p]];    // path compression by halving
+            p = id[p];
+        }
+        return p;
+    }
+
     /**
      * Returns the number of components.
      * @return the number of components (between <tt>1</tt> and <tt>N</tt>)
@@ -146,6 +157,10 @@ public class UF {
      */
     public boolean connected(int p, int q) {
         return find(p) == find(q);
+    }
+
+    public boolean connectedSafe(int p, int q) {
+        return findSafe(p) == findSafe(q);
     }
 
 

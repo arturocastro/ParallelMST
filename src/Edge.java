@@ -2,7 +2,7 @@
  * Created by Soluna on 02/12/2014.
  */
 
-class Edge {
+class Edge implements Comparable<Edge> {
     int _u;
     int _v;
     double _weight;
@@ -35,8 +35,23 @@ class Edge {
         _original = original;
     }
 
+
+
     @Override
     public String toString() {
         return (new StringBuilder("n").append(Integer.toString(_u)).append(" -- n").append(Integer.toString(_v)).append(";")).toString();
+    }
+
+    @Override
+    public int compareTo(Edge that) {
+        if (_weight < that._weight) {
+            return -1;
+        }
+
+        if (_weight > that._weight) {
+            return +1;
+        }
+
+        return  0;
     }
 }

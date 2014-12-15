@@ -26,10 +26,14 @@ public class Main {
 
         IGraph a = MST.prim(g);
 
+        MST.kruskal(g);
+
         IGraph g2 = GraphGenerator.simple(10, 10);
 
         System.out.println(g.toString());
         System.out.println(a.toString());
+
+        MST.parallelKruskal(g);
 
         System.out.println();
 

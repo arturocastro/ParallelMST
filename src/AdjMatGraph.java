@@ -3,7 +3,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.PriorityQueue;
 
 /**
  * Created by Soluna on 15/12/2014.
@@ -15,6 +17,8 @@ public class AdjMatGraph implements IGraph {
     double [][] _adj;
 
     ArrayList<Edge> _edges;
+
+    final double NO_EDGE = (double)Integer.MAX_VALUE;
 
     AdjMatGraph(final int num_vertexes, final int num_edges) {
         _num_vertexes = num_vertexes;
@@ -47,7 +51,6 @@ public class AdjMatGraph implements IGraph {
                 double w = Double.parseDouble(tokens[2]);
 
                 addEdge(u, v, w);
-                //addEdge(v, u, w, false);
             }
         }
         catch (FileNotFoundException ex) {
@@ -103,7 +106,7 @@ public class AdjMatGraph implements IGraph {
             @Override
             public boolean hasNext() {
                 while (currIdx < _num_vertexes) {
-                    if (_adj[u][currIdx] != 0) {
+                    if (_adj[u][currIdx] != NO_EDGE) {
                         return true;
                     }
 
@@ -175,4 +178,72 @@ public class AdjMatGraph implements IGraph {
 
         return it;
     }
+
+    public IGraph parallelPrim() {
+        IGraph g = this;
+
+        final int n = g.getNumVertices();
+
+        int [] pred = new int[n];
+        Arrays.fill(pred, -1);
+
+        double [] key = new double[n];
+        Arrays.fill(key, (double)Integer.MAX_VALUE);
+
+        key[0] = 0.0;
+
+        PriorityQueue<SimpleHash> pq = new PriorityQueue<SimpleHash>(n);
+
+        boolean [] inQueue = new boolean[n];
+        Arrays.fill(inQueue, true);
+
+        for (int i = 0; i < n; ++i) {
+            pq.add(new SimpleHash(i, key[i]));
+        }
+
+        while (!pq.isEmpty()) {
+            // Get minimum key
+            int u = pq.poll().v;
+            inQueue[u] = false;
+
+            // For each of u's neighbors
+            for (Iterator<Integer> it = g.iterateNeighbors(u); it.hasNext();) {
+                int v = it.next();
+
+                // if PQ contains v
+                if (inQueue[v]) {
+                    double w = g.getEdgeWeight(u, v);
+
+                    if (w < key[v]) {
+                        pred[v] = u;
+                        key[v] = w;
+
+                        for (SimpleHash pair : pq) {
+                            if (pair.v == v) {
+                                pair.key = w;
+                                pq.add(pq.poll());
+
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        IGraph mst = new AdjListGraph(g.getNumVertices(), g.getNumVertices() - 1);
+
+        for (int i = 0; i < g.getNumVertices(); ++i) {
+            if (pred[i] != -1) {
+                mst.addEdge(i, pred[i], key[i]);
+            }
+        }
+
+        if (!MST.check(this, mst)) {
+            System.out.println("Something is wrong");
+        }
+
+        return mst;
+    }
+
 }
