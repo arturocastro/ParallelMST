@@ -82,7 +82,7 @@ public class AdjListGraph implements IGraph {
     @Override
     public void addEdge(final int u, final int v, final double weight) {
         _adj[u].add(new Edge(u, v, weight, true));
-        _adj[u].add(new Edge(u, v, weight, false));
+        _adj[v].add(new Edge(v, u, weight, false));
         ++_num_edges;
     }
 
@@ -157,7 +157,7 @@ public class AdjListGraph implements IGraph {
 
             @Override
             public boolean hasNext() {
-                if (currIdx  < _adj[u].size()) {
+                if (currIdx < _adj[u].size()) {
                     return true;
                 }
 

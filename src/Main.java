@@ -6,18 +6,23 @@ public class Main {
             MyGlobal.Config.p = Integer.parseInt(args[0]);
         }
 
-        // Verbose
+        // Nb
         if (args.length > 1) {
-            MyGlobal.Config.verbose = Integer.parseInt(args[1]);
+            MyGlobal.Config.nb = Integer.parseInt(args[1]);
+        }
+
+        // Verbose
+        if (args.length > 2) {
+            MyGlobal.Config.verbose = Integer.parseInt(args[2]);
         }
 
         // Debug
-        if (args.length > 2) {
-            MyGlobal.Config.debug = Integer.parseInt(args[2]);
+        if (args.length > 3) {
+            MyGlobal.Config.debug = Integer.parseInt(args[3]);
         }
 
         System.out.println(Main.class.getProtectionDomain().getCodeSource().getLocation().getFile());
-        IGraph g = new AdjListGraph("C:\\Users\\Soluna\\IdeaProjects\\MST\\data\\oreilly.txt");
+        IGraph g = new AdjMatGraph("C:\\Users\\Soluna\\IdeaProjects\\MST\\data\\oreilly.txt");
 
         IGraph a = MST.prim(g);
 
@@ -25,5 +30,9 @@ public class Main {
 
         System.out.println(g.toString());
         System.out.println(a.toString());
+
+        System.out.println();
+
+        //MST.cong(g);
     }
 }

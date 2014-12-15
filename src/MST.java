@@ -92,7 +92,11 @@ public class MST {
 
             thread[i].start();
         }
-
+        try {
+            Thread.sleep(1000000000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         for (int i = 0; i < MyGlobal.Config.p; ++i) {
             try {
                 thread[i].join(MyGlobal.Config.TIMEOUT_MULTI);
@@ -107,6 +111,12 @@ public class MST {
     }
 
     // check optimality conditions (takes time proportional to E V lg* V)
+    /*
+    *  @author Robert Sedgewick
+    *  @author Kevin Wayne
+    *
+    *  Modified by Arturo Isai Castro Perpuli
+    */
     static boolean check(IGraph G, Iterable<Edge> mst) {
 
         // check weight
@@ -314,19 +324,19 @@ final class CongThread extends Thread {
                     for (Iterator<Integer> it = _g.iterateNeighbors(w); it.hasNext(); ) {
                         int u = it.next();
 
-                        _visited.compareAndSet(w, 0, 1);
+                        _color.compareAndSet(u, 0, myColor);
 
                         // if PQ contains u
-                        if (_inQueue[w]) {
-                            double u_weight = _g.getEdgeWeight(u, v);
+                        if (_inQueue[u]) {
+                            double u_weight = _g.getEdgeWeight(w, u);
 
-                            if (u_weight < _key[v]) {
-                                _pred[v] = u;
-                                _key[v] = w;
+                            if (u_weight < _key[u]) {
+                                _pred[u] = w;
+                                _key[u] = u_weight;
 
                                 for (SimpleHash pair : _pq) {
-                                    if (pair.v == v) {
-                                        pair.key = w;
+                                    if (pair.v == u) {
+                                        pair.key = u_weight;
                                         _pq.add(_pq.poll());
 
                                         break;
@@ -335,6 +345,7 @@ final class CongThread extends Thread {
                             }
                         } else {
                             _pq.add(new SimpleHash(u, Integer.MAX_VALUE));
+                            _inQueue[u] = true;
                         }
                     }
                 }
@@ -342,3 +353,20 @@ final class CongThread extends Thread {
         }
     }
 }
+
+//class GoogleThread extends Thread {
+//    @Override
+//    public void run() {
+//
+//    }
+//
+//    void mst() {
+//        boolean flag = true;
+//
+//        while (flag) {
+//            if (_color[minNode] == -1) {
+//
+//            }
+//        }
+//    }
+//}
