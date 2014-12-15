@@ -1,4 +1,3 @@
-import javax.swing.plaf.synth.SynthTextAreaUI;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.PriorityQueue;
@@ -9,149 +8,8 @@ import java.util.concurrent.atomic.AtomicIntegerArray;
  * Created by Soluna on 01/12/2014.
  */
 public class MST {
-    static final int CYCLE_EDGE = 1;
-    static final int MSF_EDGE = 2;
-
-    public static IGraph prim(IGraph g) {
-        final int n = g.getNumVertices();
-
-        int [] pred = new int[n];
-        Arrays.fill(pred, -1);
-
-        double [] key = new double[n];
-        Arrays.fill(key, (double)Integer.MAX_VALUE);
-
-        key[0] = 0.0;
-
-        PriorityQueue<SimpleHash> pq = new PriorityQueue<SimpleHash>(n);
-
-        boolean [] inQueue = new boolean[n];
-        Arrays.fill(inQueue, true);
-
-        for (int i = 0; i < n; ++i) {
-            pq.add(new SimpleHash(i, key[i]));
-        }
-
-        while (!pq.isEmpty()) {
-            // Get minimum key
-            int u = pq.poll().v;
-            inQueue[u] = false;
-
-            // For each of u's neighbors
-            for (Iterator<Integer> it = g.iterateNeighbors(u); it.hasNext();) {
-                int v = it.next();
-
-                // if PQ contains v
-                if (inQueue[v]) {
-                    double w = g.getEdgeWeight(u, v);
-
-                    if (w < key[v]) {
-                        pred[v] = u;
-                        key[v] = w;
-
-                        for (SimpleHash pair : pq) {
-                            if (pair.v == v) {
-                                pair.key = w;
-                                pq.add(pq.poll());
-
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-        IGraph mst = new AdjListGraph(g.getNumVertices(), g.getNumVertices() - 1);
-
-        for (int i = 0; i < g.getNumVertices(); ++i) {
-            if (pred[i] != -1) {
-                mst.addEdge(i, pred[i], key[i]);
-            }
-        }
-
-        if (!check(g, mst)) {
-            System.out.println("Something is wrong");
-        }
-
-        return mst;
-    }
-
-    public static void kruskal(IGraph g) {
-        PriorityQueue<Edge> pq = new PriorityQueue<Edge>(g.getNumEdges());
-        UF uf = new UF(g.getNumVertices());
-
-        for (Edge e : g) {
-            pq.add(e);
-        }
-
-        while (!pq.isEmpty()) {
-            Edge e = pq.poll();
-
-            if(!uf.connected(e._u, e._v)) {
-                uf.union(e._u, e._v);
-                System.out.println(e.toString());
-            }
-        }
-    }
-
     public static void boruvska(IGraph g) {
 
-    }
-
-    public static void parallelKruskal(IGraph g) {
-        Edge [] edgeArray = new Edge[g.getNumEdges()];
-        int [] edgeColorMain = new int[g.getNumEdges()];
-        AtomicIntegerArray edgeColorHelper = new AtomicIntegerArray(g.getNumEdges());
-
-        ParallelKruskalHelperThread [] helper = new ParallelKruskalHelperThread[MyGlobal.Config.p - 1];
-
-        UF uf = new UF(g.getNumVertices());
-
-        {
-            int i = 0;
-
-            for (Edge e : g) {
-                edgeArray[i] = e;
-                ++i;
-            }
-        }
-
-        Arrays.sort(edgeArray);
-
-        AtomicInteger currMain = new AtomicInteger(0);
-
-        for (int i = 0; i < helper.length; ++i) {
-            final int left = (i + 1) * edgeArray.length / MyGlobal.Config.p;
-            final int right = (i + 2) * edgeArray.length / MyGlobal.Config.p;
-
-            helper[i] = new ParallelKruskalHelperThread(left, right, edgeColorHelper, currMain, uf, edgeArray);
-
-            helper[i].start();
-        }
-
-        for (int i = currMain.get(); i < edgeArray.length; i = currMain.incrementAndGet()) {
-            Edge e = edgeArray[i];
-
-            if (edgeColorHelper.get(i) != CYCLE_EDGE) {
-                if (!uf.connected(e._u, e._v)) {
-                    uf.union(e._u, e._v);
-                    System.out.println(e.toString());
-
-                    edgeColorMain[i] = MSF_EDGE;
-                } else {
-                    edgeColorMain[i] = CYCLE_EDGE;
-                }
-            }
-        }
-
-        for (int i = 0; i < helper.length; ++i) {
-            try {
-                helper[i].join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     public static void cong(IGraph g) {
@@ -425,38 +283,6 @@ final class CongThread extends Thread {
                             _pq.add(new SimpleHash(u, Integer.MAX_VALUE));
                             _inQueue[u] = true;
                         }
-                    }
-                }
-            }
-        }
-    }
-}
-
-class ParallelKruskalHelperThread extends Thread {
-    final int _left;
-    final int _right;
-
-    AtomicIntegerArray _edgeColorHelper;
-    AtomicInteger _currMain;
-    UF _uf;
-    Edge [] _edgeArray;
-
-    ParallelKruskalHelperThread(final int left, final int right, AtomicIntegerArray edgeColorHelper, AtomicInteger currMain, UF uf, Edge [] edgeArray) {
-        _left = left;
-        _right = right;
-        _edgeColorHelper = edgeColorHelper;
-        _currMain = currMain;
-        _uf = uf;
-        _edgeArray = edgeArray;
-    }
-
-    @Override
-    public void run() {
-        while (_currMain.get() < _left) {
-            for (int i = _left; i < _right; ++i) {
-                if (_edgeColorHelper.get(i) == 0) {
-                    if (_uf.connectedSafe(_edgeArray[i]._u, _edgeArray[i]._v)) {
-                        _edgeColorHelper.set(i, MST.CYCLE_EDGE);
                     }
                 }
             }
