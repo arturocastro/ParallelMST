@@ -191,4 +191,14 @@ public class AdjListGraph implements IGraph {
 
         return minEdge;
     }
+
+    public Edge getEdge(final int u, final int v) {
+        for (Edge e : _adj[u]) {
+            if (e._v == v) {
+                return e;
+            }
+        }
+
+        return null;
+    }
 }

@@ -2,10 +2,12 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.PriorityQueue;
+
+import org.apache.commons.collections.MapIterator;
+import org.apache.commons.collections.map.MultiKeyMap;
 
 /**
  * Created by Soluna on 15/12/2014.
@@ -16,16 +18,16 @@ public class AdjMatGraph implements IGraph {
     int _num_edges;
     double [][] _adj;
 
-    ArrayList<Edge> _edges;
+    MultiKeyMap _edges;
 
-    final double NO_EDGE = (double)Integer.MAX_VALUE;
+    final double NO_EDGE = 0.0;
 
     AdjMatGraph(final int num_vertexes, final int num_edges) {
         _num_vertexes = num_vertexes;
 
         _adj = new double[num_vertexes][num_vertexes];
 
-        _edges = new ArrayList<Edge>(num_edges);
+        _edges = new MultiKeyMap();
     }
 
     AdjMatGraph(String file) {
@@ -37,7 +39,7 @@ public class AdjMatGraph implements IGraph {
 
             _adj = new double[_num_vertexes][_num_vertexes];
 
-            _edges = new ArrayList<Edge>(num_edges);
+            _edges = new MultiKeyMap();
 
             String line;
 
@@ -82,7 +84,7 @@ public class AdjMatGraph implements IGraph {
         _adj[v][u] = weight;
         ++_num_edges;
 
-        _edges.add(new Edge(u, v, weight));
+        _edges.put(u, v, new Edge(u, v, weight));
     }
 
     @Override
@@ -136,38 +138,33 @@ public class AdjMatGraph implements IGraph {
     }
 
     @Override
-    public Iterator<Edge> iterator() {
-        Iterator<Edge> it = new Iterator<Edge>() {
-            //int currU = 0;
-            //int currV = currU + 1;
+    public Edge getEdge(int u, int v) {
+        if (_edges.containsKey(u, v)) {
+            return (Edge) _edges.get(u, v);
+        }
 
-            int currIx = 0;
+        if (_edges.containsKey(v, u)) {
+            return (Edge) _edges.get(v, u);
+        }
+
+        return null;
+    }
+
+    @Override
+    public Iterator<Edge> iterator() {
+        return new Iterator<Edge>() {
+            MapIterator it = _edges.mapIterator();
 
             @Override
             public boolean hasNext() {
-//                while (currU < _num_vertexes - 1) {
-//                    currV = currU + 1;
-//
-//                    while (currV < _num_vertexes) {
-//                        if (_adj[currU][currV] != 0) {
-//                            return true;
-//                        }
-//
-//                        ++currV;
-//                    }
-//
-//                    ++currU;
-//                }
-                if (currIx < _edges.size()) {
-                    return true;
-                }
-
-                return false;
+                return it.hasNext();
             }
 
             @Override
             public Edge next() {
-                return _edges.get(currIx++);
+                it.next();
+
+                return (Edge) it.getValue();
             }
 
             @Override
@@ -176,7 +173,42 @@ public class AdjMatGraph implements IGraph {
             }
         };
 
-        return it;
+//        Iterator<Edge> it = new Iterator<Edge>() {
+//            //int currU = 0;
+//            //int currV = currU + 1;
+//
+//            @Override
+//            public boolean hasNext() {
+////                while (currU < _num_vertexes - 1) {
+////                    currV = currU + 1;
+////
+////                    while (currV < _num_vertexes) {
+////                        if (_adj[currU][currV] != 0) {
+////                            return true;
+////                        }
+////
+////                        ++currV;
+////                    }
+////
+////                    ++currU;
+////                }
+//                if (currIx < _edges.size()) {
+//                    return true;
+//                }
+//
+//                return false;
+//            }
+//
+//            @Override
+//            public Edge next() {
+//                return _edges.get(currIx++);
+//            }
+//
+//            @Override
+//            public void remove() {
+//
+//            }
+//        };
     }
 
     public IGraph parallelPrim() {

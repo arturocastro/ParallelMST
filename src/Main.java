@@ -38,5 +38,9 @@ public class Main {
         System.out.println();
 
         Boruvka.boruvka(g);
+
+        System.out.println();
+
+        ParallelBoruvka.parallelBoruvka(g);
     }
 }
