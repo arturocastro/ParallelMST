@@ -1,17 +1,12 @@
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.PriorityQueue;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 
 /**
  * Created by Soluna on 01/12/2014.
  */
 public class MST {
-    public static void boruvska(IGraph g) {
-
-    }
-
     public static void cong(IGraph g) {
         final int n = g.getNumVertices();
 
