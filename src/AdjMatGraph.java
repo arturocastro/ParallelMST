@@ -16,7 +16,7 @@ import org.apache.commons.collections.map.MultiKeyMap;
 public class AdjMatGraph implements IGraph {
     int _num_vertexes;
     int _num_edges;
-    double [][] _adj;
+    public double [][] _adj;
 
     MultiKeyMap _edges;
 
@@ -135,6 +135,20 @@ public class AdjMatGraph implements IGraph {
     @Override
     public Edge getLightestIncidentEdge(int u) {
         return null;
+    }
+
+    public int getNearestEdge(int u, int left, int right, boolean [] in) {
+        double min = (double)Integer.MAX_VALUE;
+        int minV = -1;
+
+        for (int v = left; v < right; ++v) {
+            if (in[v] && _adj[u][v] < min) {
+                min = _adj[u][v];
+                minV = v;
+            }
+        }
+
+        return minV;
     }
 
     @Override

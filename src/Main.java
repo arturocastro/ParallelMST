@@ -1,3 +1,5 @@
+import mpi.*;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -22,16 +24,16 @@ public class Main {
         }
 
         System.out.println(Main.class.getProtectionDomain().getCodeSource().getLocation().getFile());
-        IGraph g = new AdjMatGraph("C:\\Users\\Soluna\\IdeaProjects\\MST\\data\\oreilly.txt");
+        AdjMatGraph g = new AdjMatGraph("C:\\Users\\Soluna\\IdeaProjects\\MST\\data\\oreilly.txt");
 
-        IGraph a = Prim.prim(g);
+        //IGraph a = Prim.prim(g);
 
-        Kruskal.kruskal(g);
+        //Kruskal.kruskal(g);
 
         IGraph g2 = GraphGenerator.simple(10, 10);
 
-        System.out.println(g.toString());
-        System.out.println(a.toString());
+        //System.out.println(g.toString());
+        //System.out.println(a.toString());
 
         ParallelKruskal.parallelKruskal(g);
 
@@ -42,5 +44,9 @@ public class Main {
         System.out.println();
 
         ParallelBoruvka.parallelBoruvka(g);
+
+        MPI.Init(args);
+
+        ParallelPrim.parallelPrim(g);
     }
 }

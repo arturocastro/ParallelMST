@@ -18,11 +18,9 @@ public class ParallelBoruvka {
 
             // foreach tree in forest, find closest edge
             // if edge weights are equal, ties are broken in favor of first edge in G.edges()
-            for (int u = 0; u < g.getNumVertices(); ++u) {
+            for (int u = 0; u < g.getNumVertices(); ++u) { // PARALLEL!!!!!!!!!!!!!!!!!!!!!
                 for (Iterator<Integer> it = g.iterateNeighbors(u); it.hasNext();) {
                     int v = it.next();
-                    double w = g.getEdgeWeight(u, v);
-
                     Edge e = g.getEdge(u, v);
 
                     int i = uf.find(u), j = uf.find(v);
