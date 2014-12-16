@@ -13,12 +13,14 @@ import java.util.Arrays;
 
 public class Boruvka {
     public static void boruvka(IGraph g) {
+        int mst = 0;
+
         UF uf = new UF(g.getNumVertices());
 
         Edge[] closest = new Edge[g.getNumVertices()];
 
         // repeat at most log V times or until we have V-1 edges
-        for (int t = 1; t < g.getNumVertices() && mst.size() < g.getNumVertices() - 1; t = t + t) {
+        for (int t = 1; t < g.getNumVertices() && mst < g.getNumVertices() - 1; t = t + t) {
             Arrays.fill(closest, null);
 
             // foreach tree in forest, find closest edge
@@ -45,7 +47,9 @@ public class Boruvka {
                 if (e != null) {
                     // don't add the same edge twice
                     if (!uf.connected(e._u, e._v)) {
-                        mst.add(e);
+                        //mst.add(e);
+                        System.out.println(e.toString());
+                        mst++;
                         //weight += e.weight();
                         uf.union(e._u, e._v);
                     }
