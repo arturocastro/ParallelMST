@@ -61,7 +61,9 @@ public class GraphGenerator {
     public static IGraph simple(int V, int E) {
         if (E > (long) V*(V-1)/2) throw new IllegalArgumentException("Too many edges");
         if (E < 0)                throw new IllegalArgumentException("Too few edges");
-        IGraph G = new AdjListGraph(V, E);
+
+        IGraph G = MyGlobal.createGraph(V, E);
+
         Set<Edge> set = new HashSet<Edge>();
         while (G.getNumEdges() < E) {
             int v = StdRandom.uniform(V);

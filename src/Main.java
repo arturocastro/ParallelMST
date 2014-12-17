@@ -1,4 +1,4 @@
-import mpi.*;
+//import mpi.*;
 
 public class Main {
 
@@ -45,8 +45,8 @@ public class Main {
 
         ParallelBoruvka.parallelBoruvka(g);
 
-        MPI.Init(args);
-
-        ParallelPrim.parallelPrim(g);
+//        MPI.Init(args);
+//
+//        ParallelPrim.parallelPrim(g);
     }
 }

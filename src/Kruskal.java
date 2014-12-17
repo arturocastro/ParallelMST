@@ -1,22 +1,18 @@
 import java.util.Arrays;
 
-/**
- * Created by Soluna on 15/12/2014.
- */
-
 public class Kruskal {
     public static void kruskal(IGraph g) {
+        Edge [] result = new Edge[g.getNumVertices() - 1];
         Edge [] edgeArray = new Edge[g.getNumEdges()];
         UF uf = new UF(g.getNumVertices());
 
-        {
-            int i = 0;
+        int j = 0;
 
-            for (Edge e : g) {
-                edgeArray[i] = e;
-                ++i;
-            }
+        for (Edge e : g) {
+            edgeArray[j++] = e;
         }
+
+        j = 0;
 
         Arrays.sort(edgeArray);
 
@@ -25,7 +21,23 @@ public class Kruskal {
 
             if(!uf.connected(e._u, e._v)) {
                 uf.union(e._u, e._v);
-                System.out.println(e.toString());
+                result[j++] = e;
+
+                if (MyGlobal.Config.verbose == 1) {
+                    System.out.println(e.toString());
+                }
+            }
+        }
+
+        if (MyGlobal.Config.debug == 1) {
+            IGraph mst = MyGlobal.createGraph(g.getNumVertices(), result.length);
+
+            for (int i = 0; i < result.length; ++i) {
+                mst.addEdge(result[i]._u, result[i]._v, result[i]._weight);
+            }
+
+            if (!MST.check(g, mst)) {
+                MyGlobal.abort("Not correct!");
             }
         }
     }

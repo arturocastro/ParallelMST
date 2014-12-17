@@ -7,6 +7,22 @@ public final class MyGlobal {
         System.exit(-1);
     }
 
+    public static IGraph createGraph(String file) {
+        if (MyGlobal.Config.op == 0) {
+            return new AdjMatGraph(file);
+        } else {
+            return new AdjListGraph(file);
+        }
+    }
+
+    public static IGraph createGraph(int V, int E) {
+        if (MyGlobal.Config.op == 0) {
+            return new AdjMatGraph(V, E);
+        } else {
+            return new AdjListGraph(V, E);
+        }
+    }
+
     public final static class Config {
         /* Graph representations: Adjacency list -->   1
                                   Adjacency matrix --> ???
@@ -18,5 +34,6 @@ public final class MyGlobal {
         static final long TIMEOUT_MULTI = 10 * 60 * 1000;
         static int verbose = 0;
         static int debug = 0;
+        static int op = 0;
     }
 }
