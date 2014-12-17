@@ -1,6 +1,7 @@
 import java.util.Arrays;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicIntegerArray;
 
 /**
  * Created by Soluna on 15/12/2014.
@@ -9,6 +10,16 @@ import java.util.concurrent.atomic.AtomicIntegerArray;
 public class ParallelKruskal2 {
     static final int CYCLE_EDGE = 1;
     static final int MSF_EDGE = 2;
+
+    private static HeavySort.ArrayFactory<Edge> edgeArrayFactory =
+        new HeavySort.ArrayFactory<Edge>(){
+
+            @Override
+            public Edge[] buildArray(int length) {
+                return new Edge[length];
+            }
+
+        };
 
     public static void parallelKruskal(IGraph g) {
         Edge [] edgeArray = new Edge[g.getNumEdges()];
@@ -38,7 +49,10 @@ public class ParallelKruskal2 {
 
         long b = System.nanoTime();
 
-        Arrays.sort(edgeArray);
+        final ExecutorService executor = Executors.newFixedThreadPool(MyGlobal.Config.p);
+
+        //Arrays.sort(edgeArray);
+        HeavySort.sort(edgeArray, executor, MyGlobal.Config.p, edgeArrayFactory);
 
         long c = System.nanoTime();
 
@@ -70,9 +84,6 @@ public class ParallelKruskal2 {
                     edgeColorMain[i] = CYCLE_EDGE;
                 }
             }
-//            else {
-//                MyGlobal.verbosePrint("NICE");
-//            }
         }
 
         long f = System.nanoTime();
