@@ -1,6 +1,6 @@
 import javax.net.ssl.SSLContext;
 
-public class MainKruskal {
+public class MainParKruskal {
 
     public static void main(String[] args) throws InterruptedException {
         String file = null;
@@ -57,7 +57,7 @@ public class MainKruskal {
 
         final long startTime = System.nanoTime();
 
-        Kruskal.kruskal(g);
+        ParallelKruskal.parallelKruskal(g);
 
         final long endTime = System.nanoTime();
 

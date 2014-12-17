@@ -15,7 +15,13 @@ public class ParallelKruskal {
         int [] edgeColorMain = new int[g.getNumEdges()];
         AtomicIntegerArray edgeColorHelper = new AtomicIntegerArray(g.getNumEdges());
 
-        ParallelKruskalHelperThread [] helper = new ParallelKruskalHelperThread[MyGlobal.Config.p - 1];
+        final int numHelpers = MyGlobal.Config.p - 1;
+
+        ParallelKruskalHelperThread[] helper = null;
+
+        if (numHelpers > 0) {
+            helper = new ParallelKruskalHelperThread[numHelpers];
+        }
 
         UF uf = new UF(g.getNumVertices());
 
@@ -32,7 +38,7 @@ public class ParallelKruskal {
 
         AtomicInteger currMain = new AtomicInteger(0);
 
-        for (int i = 0; i < helper.length; ++i) {
+        for (int i = 0; i < numHelpers; ++i) {
             final int left = (i + 1) * edgeArray.length / MyGlobal.Config.p;
             final int right = (i + 2) * edgeArray.length / MyGlobal.Config.p;
 
@@ -56,7 +62,7 @@ public class ParallelKruskal {
             }
         }
 
-        for (int i = 0; i < helper.length; ++i) {
+        for (int i = 0; i < numHelpers; ++i) {
             try {
                 helper[i].join();
             } catch (InterruptedException e) {

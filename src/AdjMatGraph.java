@@ -86,10 +86,6 @@ public class AdjMatGraph implements IGraph {
 
         Edge e = new Edge(u, v, weight);
 
-        if (MyGlobal.Config.verbose == 1) {
-            System.out.println(e.toString());
-        }
-
         _edges.put(u, v, e);
     }
 

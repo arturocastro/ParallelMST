@@ -23,9 +23,9 @@ public class Kruskal {
                 uf.union(e._u, e._v);
                 result[j++] = e;
 
-                if (MyGlobal.Config.verbose == 1) {
-                    System.out.println(e.toString());
-                }
+//                if (MyGlobal.Config.verbose == 1) {
+//                    System.out.println("add to mst:" + e.toString());
+//                }
             }
         }
 
