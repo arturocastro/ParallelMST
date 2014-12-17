@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.PriorityQueue;
 
 public class ParallelPrim {
-    static final int HOMEMADE_HASH = 10000000;
+    static final int HOMEMADE_HASH = 100;
 
     public static IGraph parallelPrim(AdjMatGraph g) {
         AdjMatGraph mst = new AdjMatGraph(g.getNumVertices(), g.getNumVertices());
@@ -34,25 +34,39 @@ public class ParallelPrim {
 
         int vi = 0;
 
+	PriorityQueue<SimpleHash> pq = new PriorityQueue<SimpleHash>(n);
+
+	for (int i = 0; i < n; ++i) {
+	    pq.add(new SimpleHash(i, key[i]));
+	}
+
         //while (!pq.isEmpty()) {
-        while (mst.getNumEdges() < g.getNumVertices()) {
+        while (mst.getNumEdges() < g.getNumVertices() - 1) {
+
+//	    int vi = pq.peek().v;
+
             // Get minimum key
             int [] localMin = new int[1];
 
             int localMinId = g.getNearestEdge(vi, range._start, range._end, inQueue);
 
-            localMin[0] = hashEdge(localMinId, key[localMinId]);
+            localMin[0] = hashEdge(localMinId, g.getEdgeWeight(vi, localMinId));
+
+	    System.out.println("rank " + rank + " got min=" + localMinId + ", hash is " + localMin[0]);
 
             int [] globalMin = new int[1];
 
-            MPI.COMM_WORLD.AllReduce(localMin, 0, globalMin, 0, 1, MPI.INT, MPI.MIN);
+            MPI.COMM_WORLD.Allreduce(localMin, 0, globalMin, 0, 1, MPI.INT, MPI.MIN);
 
             final int u = recoverEdgeId(globalMin[0]);
 
             final double w = recoverEdgeWeight(globalMin[0], u);
 
-            inQueue[u] = false;
+	    System.out.println("result is " + globalMin[0] + ", global min is " + u);
 
+            inQueue[vi] = false;
+	    inQueue[u] = false;
+	    
             mst.addEdge(vi, u, w);
 
             if (rank == 0) {
@@ -62,7 +76,11 @@ public class ParallelPrim {
             pred[u] = vi;
             key[u] = w;
 
-            vi = u;
+	    for (int i = range._start; i < range._end; ++i) {
+		if (inQueue[i]){
+		    double wi = g.getEdgeWeight(
+		}
+	    }
 
 //            // For each of u's neighbors
 //            for (int v = range._start; v < range._end; ++v) {
@@ -91,7 +109,7 @@ public class ParallelPrim {
     }
 
     static int hashEdge(int edgeId, double edgeWeight) {
-        return (int)(edgeWeight + HOMEMADE_HASH);
+        return (int)(edgeWeight * HOMEMADE_HASH + edgeId);
     }
 
     static int recoverEdgeId(int result) {

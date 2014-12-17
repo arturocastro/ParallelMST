@@ -142,9 +142,15 @@ public class AdjMatGraph implements IGraph {
         int minV = -1;
 
         for (int v = left; v < right; ++v) {
-            if (in[v] && _adj[u][v] < min) {
+	    //System.out.println(_adj[u][v] + " - " + min);
+	    //System.out.println(in[v]);
+
+            if (in[v] && v != u && _adj[u][v] != NO_EDGE && _adj[u][v] < min) {
+		//System.out.println("YES!");
                 min = _adj[u][v];
                 minV = v;
+
+		//System.out.println("yes!" + min);
             }
         }
 
