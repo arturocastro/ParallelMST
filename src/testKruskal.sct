@@ -1,0 +1,12 @@
+counter=0
+
+for p in {1..8}
+do
+  echo "Running on $p threads"
+  let counter=0
+
+  while [ $counter -lt 10 ]; do
+    java Main $p
+    let counter=counter+1
+  done
+done
