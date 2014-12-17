@@ -29,6 +29,12 @@ public final class MyGlobal {
         }
     }
 
+    public static void verbosePrint(String s, int level) {
+        if (MyGlobal.Config.verbose == 2) {
+            System.out.println(s);
+        }
+    }
+
     public final static class Config {
         /* Graph representations: Adjacency list -->   1
                                   Adjacency matrix --> ???

@@ -53,12 +53,12 @@ public class MainParKruskal {
         IGraph g = null;
 
         if (file == null) {
-            g = GraphGenerator.simple(10, 10);
+            g = GraphGenerator.simple(1000, 0.5);
         } else {
             g = MyGlobal.createGraph(file);
         }
 
-        if (MyGlobal.Config.verbose == 1) {
+        if (MyGlobal.Config.verbose == 2) {
             System.out.println(g.toString());
         }
 

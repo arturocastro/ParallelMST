@@ -25,6 +25,8 @@ public class ParallelKruskal2 {
 
         UF uf = new UF(g.getNumVertices());
 
+        long a = System.nanoTime();
+
         {
             int i = 0;
 
@@ -34,7 +36,11 @@ public class ParallelKruskal2 {
             }
         }
 
+        long b = System.nanoTime();
+
         Arrays.sort(edgeArray);
+
+        long c = System.nanoTime();
 
         AtomicInteger currMain = new AtomicInteger(0);
 
@@ -49,6 +55,8 @@ public class ParallelKruskal2 {
             helper[i].start();
         }
 
+        long d = System.nanoTime();
+
         for (int i = currMain.get(); i < edgeArray.length; i = currMain.incrementAndGet()) {
             Edge e = edgeArray[i];
 
@@ -62,10 +70,12 @@ public class ParallelKruskal2 {
                     edgeColorMain[i] = CYCLE_EDGE;
                 }
             }
-            else {
-                MyGlobal.verbosePrint("NICE");
-            }
+//            else {
+//                MyGlobal.verbosePrint("NICE");
+//            }
         }
+
+        long f = System.nanoTime();
 
         for (int i = 0; i < numHelpers; ++i) {
             try {
@@ -73,6 +83,13 @@ public class ParallelKruskal2 {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+        }
+
+        if (MyGlobal.Config.verbose == 1) {
+            System.out.println("assign array: " + (b - a)/1000000.0);
+            System.out.println("sort: " + (c - b)/1000000.0);
+            System.out.println("threading: " + (d - c)/1000000.0);
+            System.out.println("main kruskal: " + (f - d)/1000000.0);
         }
     }
 }
