@@ -7,7 +7,9 @@ public class MainKruskal {
         if (args.length > 0) {
             file = args[0];
 
-            if (file == "nofile") {
+            System.out.println(file);
+
+            if (file.equals("nofile")) {
                 file = null;
             }
         }
@@ -37,7 +39,7 @@ public class MainKruskal {
             MyGlobal.Config.debug = Integer.parseInt(args[5]);
         }
 
-        System.out.println(Main.class.getProtectionDomain().getCodeSource().getLocation().getFile());
+        //System.out.println(Main.class.getProtectionDomain().getCodeSource().getLocation().getFile());
 
         IGraph g = null;
 
@@ -45,6 +47,10 @@ public class MainKruskal {
             g = GraphGenerator.simple(10, 10);
         } else {
             g = MyGlobal.createGraph(file);
+        }
+
+        if (MyGlobal.Config.verbose == 1) {
+            System.out.println(g.toString());
         }
 
         Kruskal.kruskal(g);

@@ -26,6 +26,8 @@
 
 import java.util.Set;
 import java.util.HashSet;
+import org.apache.commons.collections.MultiMap;
+import org.apache.commons.collections.map.MultiKeyMap;
 
 public class GraphGenerator {
 //    private static final class Edge implements Comparable<Edge> {
@@ -64,13 +66,18 @@ public class GraphGenerator {
 
         IGraph G = MyGlobal.createGraph(V, E);
 
-        Set<Edge> set = new HashSet<Edge>();
+        MultiKeyMap set = new MultiKeyMap();
+
         while (G.getNumEdges() < E) {
             int v = StdRandom.uniform(V);
             int w = StdRandom.uniform(V);
-            Edge e = new Edge(v, w);
-            if ((v != w) && !set.contains(e)) {
-                set.add(e);
+
+            if ((v != w) && !set.containsKey(v, w)) {
+                set.put(v, w, 1);
+                set.put(w, v, 1);
+
+                Edge e = new Edge(v, w);
+
                 G.addEdge(e._u, e._v, e._weight);
             }
         }
@@ -208,5 +215,5 @@ public class GraphGenerator {
         StdOut.println(regular(V, 4));
         StdOut.println();*/
     }
-
 }
+

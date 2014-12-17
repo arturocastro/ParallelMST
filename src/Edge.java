@@ -26,6 +26,7 @@ class Edge implements Comparable<Edge> {
         _u = u;
         _v = v;
         _weight = weight;
+        _original = true;
     }
 
     Edge(final int u, final int v, final double weight, final boolean original) {
