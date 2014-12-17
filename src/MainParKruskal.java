@@ -41,6 +41,13 @@ public class MainParKruskal {
             MyGlobal.Config.debug = Integer.parseInt(args[5]);
         }
 
+        MyGlobal.verbosePrint("file:"+args[0]);
+        MyGlobal.verbosePrint("op:"+args[1]);
+        MyGlobal.verbosePrint("p:"+args[2]);
+        MyGlobal.verbosePrint("nb:"+args[3]);
+        MyGlobal.verbosePrint("verb:"+args[4]);
+        MyGlobal.verbosePrint("db:"+args[5]);
+
         //System.out.println(Main.class.getProtectionDomain().getCodeSource().getLocation().getFile());
 
         IGraph g = null;

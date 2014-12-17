@@ -42,6 +42,8 @@ public class ParallelKruskal {
             final int left = (i + 1) * edgeArray.length / MyGlobal.Config.p;
             final int right = (i + 2) * edgeArray.length / MyGlobal.Config.p;
 
+            MyGlobal.verbosePrint("left=" + left + ", right=" + right);
+
             helper[i] = new ParallelKruskalHelperThread(left, right, edgeColorHelper, currMain, uf, edgeArray);
 
             helper[i].start();
@@ -53,12 +55,15 @@ public class ParallelKruskal {
             if (edgeColorHelper.get(i) != CYCLE_EDGE) {
                 if (!uf.connected(e._u, e._v)) {
                     uf.union(e._u, e._v);
-                    System.out.println(e.toString());
+                    //System.out.println(e.toString());
 
                     edgeColorMain[i] = MSF_EDGE;
                 } else {
                     edgeColorMain[i] = CYCLE_EDGE;
                 }
+            }
+            else {
+                MyGlobal.verbosePrint("NICE");
             }
         }
 
@@ -97,9 +102,13 @@ class ParallelKruskalHelperThread extends Thread {
                 if (_edgeColorHelper.get(i) == 0) {
                     if (_uf.connectedSafe(_edgeArray[i]._u, _edgeArray[i]._v)) {
                         _edgeColorHelper.set(i, ParallelKruskal.CYCLE_EDGE);
+
+                        //MyGlobal.verbosePrint("YES!");
                     }
                 }
             }
         }
+
+        MyGlobal.verbosePrint("ok...");
     }
 }
