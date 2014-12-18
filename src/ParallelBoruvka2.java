@@ -4,10 +4,9 @@ import java.util.Iterator;
 /**
  * Created by Soluna on 16/12/2014.
  */
-public class ParallelBoruvka {
-    static int mst = 0;
-
+public class ParallelBoruvka2 {
     public static void parallelBoruvka(IGraph g) {
+        int mst = 0;
         final UF uf = new UF(g.getNumVertices());
 
         final Edge [] closest = new Edge[g.getNumVertices()];
@@ -48,23 +47,20 @@ public class ParallelBoruvka {
             });
 
             // add newly discovered edges to MST
-            Parallel.For(0, g.getNumVertices(), new LoopBody<Integer>() {
-                @Override
-                public void run(Integer i) {
-                    Edge e = closest[i];
+            for (int i = 0; i < g.getNumVertices(); ++i) {
+                Edge e = closest[i];
 
-                    if (e != null) {
-                        // don't add the same edge twice
-                        if (!uf.connected(e._u, e._v)) {
-                            //mst.add(e);
-                            //System.out.println(e.toString());
-                            mst++;
-                            //weight += e.weight();
-                            uf.union(e._u, e._v);
-                        }
+                if (e != null) {
+                    // don't add the same edge twice
+                    if (!uf.connected(e._u, e._v)) {
+                        //mst.add(e);
+                        //System.out.println(e.toString());
+                        mst++;
+                        //weight += e.weight();
+                        uf.union(e._u, e._v);
                     }
                 }
-            });
+            }
         }
     }
 }

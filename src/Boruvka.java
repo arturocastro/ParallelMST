@@ -48,7 +48,7 @@ public class Boruvka {
                     // don't add the same edge twice
                     if (!uf.connected(e._u, e._v)) {
                         //mst.add(e);
-                        System.out.println(e.toString());
+                        //System.out.println(e.toString());
                         mst++;
                         //weight += e.weight();
                         uf.union(e._u, e._v);
