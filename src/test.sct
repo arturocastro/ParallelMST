@@ -1,10 +1,10 @@
 #!/usr/bin/sh
 
-javac -cp ".;commons-collections-3.2.1.jar" *.java
+javac -cp ".:$MPJ_HOME/lib/mpj.jar:jopt-simple-4.8.jar:commons-collections-3.2.1.jar" *.java
 
 counter=0
 
 while [ $counter -lt 10 ]; do
-  java -cp ".;commons-collections-3.2.1.jar" MainKruskal $1 $2 $3 $4 $5
+  java -cp ".:$MPJ_HOME/lib/mpj.jar:jopt-simple-4.8.jar:commons-collections-3.2.1.jar" MainKruskal $1 $2 $3 $4 $5 $6
   let counter=counter+1
 done
