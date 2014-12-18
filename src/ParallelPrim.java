@@ -4,6 +4,10 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.PriorityQueue;
 
+/**
+ * Created by Arturo Isai Castro Perpuli on 29/11/2014.
+ */
+
 public class ParallelPrim {
     static final int HOMEMADE_HASH = 100;
 

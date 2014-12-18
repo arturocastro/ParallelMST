@@ -1,3 +1,8 @@
+/*
+ * Original code by Ross Anderson
+ * http://rma350.scripts.mit.edu/home/?p=64
+ */
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

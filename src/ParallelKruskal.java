@@ -3,7 +3,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 
 /**
- * Created by Soluna on 15/12/2014.
+ * Created by Arturo Isai Castro Perpuli on 15/12/2014.
  */
 
 public class ParallelKruskal {

@@ -1,5 +1,5 @@
 /**
- * Created by Soluna on 02/12/2014.
+ * Created by Arturo Isai Castro Perpuli on 02/12/2014.
  */
 
 class Edge implements Comparable<Edge> {

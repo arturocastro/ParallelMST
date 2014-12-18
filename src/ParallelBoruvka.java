@@ -1,18 +1,18 @@
 import java.util.Arrays;
-import java.util.Iterator;
 
 /**
- * Created by Soluna on 16/12/2014.
+ * Created by Arturo Isai Castro Perpuli on 16/12/2014.
  */
 public class ParallelBoruvka {
-    static int mst = 0;
-
     public static void parallelBoruvka(IGraph g) {
+        int mst = 0;
         final UF uf = new UF(g.getNumVertices());
 
-        final Edge [] closest = new Edge[g.getNumVertices()];
+        final Edge[] closest = new Edge[g.getNumVertices()];
 
-        final Edge [] edges = new Edge[g.getNumEdges()];
+        final Edge[] edges = new Edge[g.getNumEdges()];
+
+        T[] th = new T[MyGlobal.Config.p];
 
         long s = System.nanoTime();
         for (Edge e : g) {
@@ -22,49 +22,89 @@ public class ParallelBoruvka {
 
         mst = 0;
 
+//        for (int i = 0; i < th.length; ++i) {
+//            final int left = (i) * edges.length / MyGlobal.Config.p;
+//            final int right = (i + 1) * edges.length / MyGlobal.Config.p;
+//
+//            MyGlobal.verbosePrint("left=" + left + ", right=" + right);
+//
+//            th[i] = new T(edges, closest, left, right, uf);
+//        }
+
         // repeat at most log V times or until we have V-1 edges
         for (int t = 1; t < g.getNumVertices() && mst < g.getNumVertices() - 1; t = t + t) {
             Arrays.fill(closest, null);
 
-            // foreach tree in forest, find closest edge
-            // if edge weights are equal, ties are broken in favor of first edge in G.edges()
-            Parallel.For(0, edges.length, new LoopBody<Integer>() {
-                @Override
-                public void run(Integer k) {
-                    Edge e = edges[k];
+            for (int i = 0; i < th.length; ++i) {
+                final int left = (i) * edges.length / MyGlobal.Config.p;
+                final int right = (i + 1) * edges.length / MyGlobal.Config.p;
 
-                    int i = uf.find(e._u), j = uf.find(e._v);
+                //MyGlobal.verbosePrint("left=" + left + ", right=" + right);
 
-                    if (i != j) {
-                        if (closest[i] == null || e._weight < closest[i]._weight) {
-                            closest[i] = e;
-                        }
+                th[i] = new T(edges, closest, left, right, uf);
 
-                        if (closest[j] == null || e._weight < closest[j]._weight) {
-                            closest[j] = e;
-                        }
-                    }
+                th[i].start();
+            }
+
+            for (int i = 0; i < th.length; ++i) {
+                try {
+                    th[i].join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-            });
+            }
 
             // add newly discovered edges to MST
-            Parallel.For(0, g.getNumVertices(), new LoopBody<Integer>() {
-                @Override
-                public void run(Integer i) {
-                    Edge e = closest[i];
+            for (int i = 0; i < g.getNumVertices(); ++i) {
+                Edge e = closest[i];
 
-                    if (e != null) {
-                        // don't add the same edge twice
-                        if (!uf.connected(e._u, e._v)) {
-                            //mst.add(e);
-                            //System.out.println(e.toString());
-                            mst++;
-                            //weight += e.weight();
-                            uf.union(e._u, e._v);
-                        }
+                if (e != null) {
+                    // don't add the same edge twice
+                    if (!uf.connected(e._u, e._v)) {
+                        //mst.add(e);
+                        //System.out.println(e.toString());
+                        mst++;
+                        //weight += e.weight();
+                        uf.union(e._u, e._v);
                     }
                 }
-            });
+            }
+        }
+    }
+}
+
+class T extends Thread {
+    Edge [] closest;
+    Edge [] edges;
+
+    int left;
+    int right;
+
+    UF uf;
+
+    public T(Edge [] edges, Edge [] closest, int left, int right, UF uf) {
+        this.closest = closest;
+        this.edges = edges;
+        this.left = left;
+        this.right = right;
+        this.uf = uf;
+    }
+
+    public void run() {
+        for (int k = left; k < right; ++k) {
+            Edge e = edges[k];
+
+            int i = uf.find(e._u), j = uf.find(e._v);
+
+            if (i != j) {
+                if (closest[i] == null || e._weight < closest[i]._weight) {
+                    closest[i] = e;
+                }
+
+                if (closest[j] == null || e._weight < closest[j]._weight) {
+                    closest[j] = e;
+                }
+            }
         }
     }
 }

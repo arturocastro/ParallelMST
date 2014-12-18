@@ -4,7 +4,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * Created by Soluna on 15/12/2014.
+ * Created by Arturo Isai Castro Perpuli on 15/12/2014.
  */
 
 public class ParallelKruskal2 {

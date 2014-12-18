@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by Soluna on 29/11/2014.
+ * Created by Arturo Isai Castro Perpuli on 29/11/2014.
  */
 
 public class AdjListGraph implements IGraph {

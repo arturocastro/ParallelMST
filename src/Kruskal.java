@@ -1,5 +1,9 @@
 import java.util.Arrays;
 
+/**
+ * Created by Arturo Isai Castro Perpuli on 29/11/2014.
+ */
+
 public class Kruskal {
     public static void kruskal(IGraph g) {
         Edge [] result = new Edge[g.getNumVertices() - 1];

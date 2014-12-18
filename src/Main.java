@@ -1,4 +1,6 @@
-//import mpi.*;
+/**
+ * Created by Arturo Isai Castro Perpuli on 29/11/2014.
+ */
 
 public class Main {
 

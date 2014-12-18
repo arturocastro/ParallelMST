@@ -1,3 +1,7 @@
+/**
+ * Created by Arturo Isai Castro Perpuli on 29/11/2014.
+ */
+
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
 
@@ -52,7 +56,7 @@ public class MainParBoruvka {
 
         final long startTime = System.nanoTime();
 
-        ParallelBoruvka3.parallelBoruvka(g);
+        ParallelBoruvka.parallelBoruvka(g);
 
         final long endTime = System.nanoTime();
 

@@ -20,6 +20,8 @@
  *
  *  @author Robert Sedgewick
  *  @author Kevin Wayne
+ *  *  Copyright © 2002–2010, Robert Sedgewick and Kevin Wayne.
+ *  http://algs4.cs.princeton.edu/41undirected/GraphGenerator.java.html
  */
 
 /* Modified by Arturo Isai Castro Perpuli */

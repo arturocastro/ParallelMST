@@ -3,7 +3,7 @@ import java.util.Iterator;
 import java.util.PriorityQueue;
 
 /**
- * Created by Soluna on 15/12/2014.
+ * Created by Arturo Isai Castro Perpuli on 15/12/2014.
  */
 
 public class Prim {

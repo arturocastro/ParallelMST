@@ -10,7 +10,7 @@ import org.apache.commons.collections.MapIterator;
 import org.apache.commons.collections.map.MultiKeyMap;
 
 /**
- * Created by Soluna on 15/12/2014.
+ * Created by Arturo Isai Castro Perpuli on 15/12/2014.
  */
 
 public class AdjMatGraph implements IGraph {

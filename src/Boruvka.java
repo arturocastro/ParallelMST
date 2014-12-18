@@ -1,12 +1,10 @@
 import java.util.Arrays;
 
-/**
- * Created by Soluna on 15/12/2014.
- */
-
 /*
 *  @author Robert Sedgewick
 *  @author Kevin Wayne
+*  Copyright © 2002–2010, Robert Sedgewick and Kevin Wayne.
+*  http://algs4.cs.princeton.edu/43mst/BoruvkaMST.java.html
 */
 
 /* Modified by Arturo Isai Castro Perpuli */
