@@ -4,6 +4,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -20,7 +21,7 @@ public class AdjListGraph implements IGraph {
         _adj = new List[_num_vertexes];
 
         for(int i = 0; i < _num_vertexes; ++i) {
-            _adj[i] = new ArrayList<Edge>(num_edges);
+            _adj[i] = new LinkedList<Edge>();
         }
     }
 
@@ -34,7 +35,7 @@ public class AdjListGraph implements IGraph {
             _adj = new List[_num_vertexes];
 
             for (int i = 0; i < _num_vertexes; ++i) {
-                _adj[i] = new ArrayList<Edge>(num_edges);
+                _adj[i] = new LinkedList<Edge>();
             }
 
             String line;
