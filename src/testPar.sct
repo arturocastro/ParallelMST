@@ -1,0 +1,16 @@
+#!/usr/bin/bash
+
+javac -cp ".:$MPJ_HOME/lib/mpj.jar:commons-collections-3.2.1.jar:jopt-simple-4.8.jar" *.java
+
+counter=0
+
+for p in {1..8}
+do
+  echo "Running on $p threads"
+  let counter=0
+
+  while [ $counter -lt 10 ]; do
+    java -cp ".:commons-collections-3.2.1.jar:jopt-simple-4.8.jar" $1 $2 $3 -p$p $4 $5 $6
+    let counter=counter+1
+  done
+done
