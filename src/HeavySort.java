@@ -8,7 +8,7 @@ import java.util.concurrent.Future;
 
 public class HeavySort {
 
-    private static boolean noisy = true;
+    private static boolean noisy = false;
 
     public static <T extends Comparable<T>> void sort(T[] data,
                                                       ExecutorService service, int numThreads,
