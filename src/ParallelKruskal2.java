@@ -25,6 +25,8 @@ public class ParallelKruskal2 {
         Edge [] edgeArray = new Edge[g.getNumEdges()];
         int [] edgeColorHelper = new int [g.getNumEdges()];
         Edge [] result = new Edge[g.getNumVertices() - 1];
+        AtomicInteger currMain = new AtomicInteger(0);
+        final ExecutorService executor = Executors.newFixedThreadPool(MyGlobal.Config.p);
 
         final int numHelpers = MyGlobal.Config.p - 1;
 
@@ -48,14 +50,10 @@ public class ParallelKruskal2 {
 
         long b = System.nanoTime();
 
-        final ExecutorService executor = Executors.newFixedThreadPool(MyGlobal.Config.p);
-
         //Arrays.sort(edgeArray);
         HeavySort.sort(edgeArray, executor, MyGlobal.Config.p, edgeArrayFactory);
 
         long c = System.nanoTime();
-
-        AtomicInteger currMain = new AtomicInteger(0);
 
         for (int i = 0; i < numHelpers; ++i) {
             final int left = (i + 1) * edgeArray.length / MyGlobal.Config.p;
