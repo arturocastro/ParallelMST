@@ -36,9 +36,6 @@ public final class MyGlobal {
     }
 
     public final static class Config {
-        /* Graph representations: Adjacency list -->   1
-                                  Adjacency matrix --> ???
-         */
         static final int GRAPH_REPRESENTATION = 1;
         static int p = 1; // Num of processors
         static int nb = 10;
@@ -46,6 +43,6 @@ public final class MyGlobal {
         static final long TIMEOUT_MULTI = 10 * 60 * 1000;
         static int verbose = 0;
         static int debug = 0;
-        static int op = 0;
+        static int op = 0; // 0 is matrix, 1 is list
     }
 }

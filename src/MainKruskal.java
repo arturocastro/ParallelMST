@@ -1,44 +1,39 @@
-import javax.net.ssl.SSLContext;
+import joptsimple.OptionParser;
+import joptsimple.OptionSet;
 
 public class MainKruskal {
 
     public static void main(String[] args) throws InterruptedException {
         String file = null;
 
-        // File path and name
-        if (args.length > 0) {
-            file = args[0];
+        OptionParser parser = new OptionParser("V:E:vdp:l");
+        OptionSet options = parser.parse(args);
 
-            //System.out.println(file);
+        int V = 1000;
+        double E = 0.5;
 
-            if (file.equals("nofile")) {
-                file = null;
-            }
+        if (options.has("V") && options.hasArgument("V")) {
+            V = Integer.parseInt((String) options.valueOf("V"));
         }
 
-        // List or matrix
-        if (args.length > 1) {
-            MyGlobal.Config.op = Integer.parseInt(args[1]);
+        if (options.has("E") && options.hasArgument("E")) {
+            E = Integer.parseInt((String)options.valueOf("E")) / 100.0;
         }
 
-        // Number of threads
-        if (args.length > 2) {
-            MyGlobal.Config.p = Integer.parseInt(args[2]);
+        if (options.has("p") && options.hasArgument("p")) {
+            MyGlobal.Config.p = Integer.parseInt((String) options.valueOf("p"));
         }
 
-        // Nb
-        if (args.length > 3) {
-            MyGlobal.Config.nb = Integer.parseInt(args[3]);
+        if (options.has("l")) {
+            MyGlobal.Config.op = 1;
         }
 
-        // Verbose
-        if (args.length > 4) {
-            MyGlobal.Config.verbose = Integer.parseInt(args[4]);
+        if (options.has("v")) {
+            MyGlobal.Config.verbose = 1;
         }
 
-        // Debug
-        if (args.length > 5) {
-            MyGlobal.Config.debug = Integer.parseInt(args[5]);
+        if (options.has("d")) {
+            MyGlobal.Config.debug = 1;
         }
 
         //System.out.println(Main.class.getProtectionDomain().getCodeSource().getLocation().getFile());
