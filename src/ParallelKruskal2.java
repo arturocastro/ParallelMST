@@ -23,8 +23,8 @@ public class ParallelKruskal2 {
 
     public static void parallelKruskal(IGraph g) {
         Edge [] edgeArray = new Edge[g.getNumEdges()];
-        int [] edgeColorMain = new int[g.getNumEdges()];
         int [] edgeColorHelper = new int [g.getNumEdges()];
+        Edge [] result = new Edge[g.getNumVertices() - 1];
 
         final int numHelpers = MyGlobal.Config.p - 1;
 
@@ -38,14 +38,13 @@ public class ParallelKruskal2 {
 
         long a = System.nanoTime();
 
-        {
-            int i = 0;
+        int j = 0;
 
-            for (Edge e : g) {
-                edgeArray[i] = e;
-                ++i;
-            }
+        for (Edge e : g) {
+            edgeArray[j++] = e;
         }
+
+        j = 0;
 
         long b = System.nanoTime();
 
@@ -77,11 +76,8 @@ public class ParallelKruskal2 {
             if (edgeColorHelper[i] != CYCLE_EDGE) {
                 if (!uf.connected(e._u, e._v)) {
                     uf.union(e._u, e._v);
+                    result[j++] = e;
                     //System.out.println(e.toString());
-
-                    edgeColorMain[i] = MSF_EDGE;
-                } else {
-                    edgeColorMain[i] = CYCLE_EDGE;
                 }
             }
         }
@@ -101,6 +97,18 @@ public class ParallelKruskal2 {
             System.out.println("sort: " + (c - b)/1000000.0);
             System.out.println("threading: " + (d - c)/1000000.0);
             System.out.println("main kruskal: " + (f - d)/1000000.0);
+        }
+
+        if (MyGlobal.Config.debug == 1) {
+            IGraph mst = MyGlobal.createGraph(g.getNumVertices(), result.length);
+
+            for (int i = 0; i < j; ++i) {
+                mst.addEdge(result[i]._u, result[i]._v, result[i]._weight);
+            }
+
+            if (!MST.check(g, mst)) {
+                MyGlobal.abort("Not correct!");
+            }
         }
     }
 }

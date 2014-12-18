@@ -66,7 +66,7 @@ public class MST {
         for (Edge e : mst) {
             //int v = e.either(), w = e.other(v);
             if (uf.connected(e._u, e._v)) {
-                System.err.println("Not a forest");
+                System.out.println("Not a forest");
                 return false;
             }
             uf.union(e._u, e._v);
@@ -76,7 +76,7 @@ public class MST {
         for (Edge e : G) {
             //int v = e.either(), w = e.other(v);
             if (!uf.connected(e._u, e._v)) {
-                System.err.println("Not a spanning forest");
+                System.out.println("Not a spanning forest");
                 return false;
             }
         }
@@ -96,7 +96,7 @@ public class MST {
                 //int x = f.either(), y = f.other(x);
                 if (!uf.connected(f._u, f._v)) {
                     if (f._weight < e._weight) {
-                        System.err.println("Edge " + f + " violates cut optimality conditions");
+                        System.out.println("Edge " + f + " violates cut optimality conditions");
                         return false;
                     }
                 }

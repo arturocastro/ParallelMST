@@ -12,8 +12,8 @@ public class ParallelKruskal {
 
     public static void parallelKruskal(IGraph g) {
         Edge [] edgeArray = new Edge[g.getNumEdges()];
-        int [] edgeColorMain = new int[g.getNumEdges()];
         AtomicIntegerArray edgeColorHelper = new AtomicIntegerArray(g.getNumEdges());
+        Edge [] result = new Edge[g.getNumVertices() - 1];
 
         final int numHelpers = MyGlobal.Config.p - 1;
 
@@ -25,14 +25,13 @@ public class ParallelKruskal {
 
         UF uf = new UF(g.getNumVertices());
 
-        {
-            int i = 0;
+        int j = 0;
 
-            for (Edge e : g) {
-                edgeArray[i] = e;
-                ++i;
-            }
+        for (Edge e : g) {
+            edgeArray[j++] = e;
         }
+
+        j = 0;
 
         Arrays.sort(edgeArray);
 
@@ -55,15 +54,9 @@ public class ParallelKruskal {
             if (edgeColorHelper.get(i) != CYCLE_EDGE) {
                 if (!uf.connected(e._u, e._v)) {
                     uf.union(e._u, e._v);
+                    result[j++] = e;
                     //System.out.println(e.toString());
-
-                    edgeColorMain[i] = MSF_EDGE;
-                } else {
-                    edgeColorMain[i] = CYCLE_EDGE;
                 }
-            }
-            else {
-                MyGlobal.verbosePrint("NICE");
             }
         }
 
@@ -72,6 +65,18 @@ public class ParallelKruskal {
                 helper[i].join();
             } catch (InterruptedException e) {
                 e.printStackTrace();
+            }
+        }
+
+        if (MyGlobal.Config.debug == 1) {
+            IGraph mst = MyGlobal.createGraph(g.getNumVertices(), result.length);
+
+            for (int i = 0; i < j; ++i) {
+                mst.addEdge(result[i]._u, result[i]._v, result[i]._weight);
+            }
+
+            if (!MST.check(g, mst)) {
+                MyGlobal.abort("Not correct!");
             }
         }
     }
@@ -102,8 +107,6 @@ class ParallelKruskalHelperThread extends Thread {
                 if (_edgeColorHelper.get(i) == 0) {
                     if (_uf.connectedSafe(_edgeArray[i]._u, _edgeArray[i]._v)) {
                         _edgeColorHelper.set(i, ParallelKruskal.CYCLE_EDGE);
-
-                        //MyGlobal.verbosePrint("YES!");
                     }
                 }
             }

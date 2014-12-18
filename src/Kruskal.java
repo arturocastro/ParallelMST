@@ -32,7 +32,7 @@ public class Kruskal {
         if (MyGlobal.Config.debug == 1) {
             IGraph mst = MyGlobal.createGraph(g.getNumVertices(), result.length);
 
-            for (int i = 0; i < result.length; ++i) {
+            for (int i = 0; i < j; ++i) {
                 mst.addEdge(result[i]._u, result[i]._v, result[i]._weight);
             }
 
