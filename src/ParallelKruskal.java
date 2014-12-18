@@ -46,7 +46,7 @@ public class ParallelKruskal {
             final int left = (i + 1) * edgeArray.length / MyGlobal.Config.p;
             final int right = (i + 2) * edgeArray.length / MyGlobal.Config.p;
 
-            MyGlobal.verbosePrint("left=" + left + ", right=" + right);
+            //MyGlobal.verbosePrint("left=" + left + ", right=" + right);
 
             helper[i] = new ParallelKruskalHelperThread(left, right, edgeColorHelper, currMain, uf, edgeArray);
 
@@ -74,6 +74,10 @@ public class ParallelKruskal {
                 helper[i].join();
             } catch (InterruptedException e) {
                 e.printStackTrace();
+            }
+
+            if (MyGlobal.Config.verbose == 1) {
+                System.out.println("helper " + i + " runtime " + helper[i].runtime);
             }
         }
 
@@ -107,6 +111,8 @@ class ParallelKruskalHelperThread extends Thread {
     UF _uf;
     Edge [] _edgeArray;
 
+    public double runtime;
+
     ParallelKruskalHelperThread(final int left, final int right, AtomicIntegerArray edgeColorHelper, AtomicInteger currMain, UF uf, Edge [] edgeArray) {
         _left = left;
         _right = right;
@@ -118,6 +124,8 @@ class ParallelKruskalHelperThread extends Thread {
 
     @Override
     public void run() {
+        long start = System.nanoTime();
+
         while (_currMain.get() < _left) {
             for (int i = _left; i < _right; ++i) {
                 if (_edgeColorHelper.get(i) == 0) {
@@ -128,6 +136,6 @@ class ParallelKruskalHelperThread extends Thread {
             }
         }
 
-        MyGlobal.verbosePrint("ok...");
+        runtime = (System.nanoTime() - start) / 1000000.0;
     }
 }

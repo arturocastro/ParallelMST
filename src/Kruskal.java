@@ -18,7 +18,11 @@ public class Kruskal {
 
         j = 0;
 
+        long a = System.nanoTime();
+
         Arrays.sort(edgeArray);
+
+        long b = System.nanoTime();
 
         for (int i = 0; i < edgeArray.length; ++i) {
             Edge e = edgeArray[i];
@@ -28,6 +32,8 @@ public class Kruskal {
                 result[j++] = e;
             }
         }
+
+        long c = System.nanoTime();
 
         if (MyGlobal.Config.debug == 1) {
             IGraph mst = MyGlobal.createGraph(g.getNumVertices(), result.length);
@@ -40,5 +46,8 @@ public class Kruskal {
                 MyGlobal.abort("Not correct!");
             }
         }
+
+        System.out.println("sort " + (b - a) / 1000000.0);
+        System.out.println("merge " + (c - a) / 1000000.0);
     }
 }
