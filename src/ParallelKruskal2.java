@@ -53,6 +53,8 @@ public class ParallelKruskal2 {
         //Arrays.sort(edgeArray);
         HeavySort.sort(edgeArray, executor, MyGlobal.Config.p, edgeArrayFactory);
 
+        executor.shutdown();
+
         long c = System.nanoTime();
 
         for (int i = 0; i < numHelpers; ++i) {

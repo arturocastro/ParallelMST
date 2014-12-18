@@ -22,10 +22,6 @@ public class Kruskal {
             if(!uf.connected(e._u, e._v)) {
                 uf.union(e._u, e._v);
                 result[j++] = e;
-
-//                if (MyGlobal.Config.verbose == 1) {
-//                    System.out.println("add to mst:" + e.toString());
-//                }
             }
         }
 

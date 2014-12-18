@@ -41,7 +41,7 @@ public class MainKruskal {
         IGraph g = null;
 
         if (file == null) {
-            g = GraphGenerator.simple(10, 10);
+            g = GraphGenerator.simple(V, E);
         } else {
             g = MyGlobal.createGraph(file);
         }
