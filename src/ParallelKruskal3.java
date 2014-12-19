@@ -7,31 +7,32 @@ import java.util.concurrent.atomic.AtomicInteger;
  * Created by Arturo Isai Castro Perpuli on 15/12/2014.
  */
 
-public class ParallelKruskal2 {
+public class ParallelKruskal3 {
     static final int CYCLE_EDGE = 1;
 
     private static HeavySort.ArrayFactory<Edge> edgeArrayFactory =
-        new HeavySort.ArrayFactory<Edge>(){
+            new HeavySort.ArrayFactory<Edge>(){
 
-            @Override
-            public Edge[] buildArray(int length) {
-                return new Edge[length];
-            }
+                @Override
+                public Edge[] buildArray(int length) {
+                    return new Edge[length];
+                }
 
-        };
+            };
 
     public static void parallelKruskal(IGraph g) {
         Edge [] edgeArray = new Edge[g.getNumEdges()];
         int [] edgeColorHelper = new int [g.getNumEdges()];
         Edge [] result = new Edge[g.getNumVertices() - 1];
         AtomicInteger currMain = new AtomicInteger(0);
+        final ExecutorService executor = Executors.newFixedThreadPool(MyGlobal.Config.p);
 
         final int numHelpers = MyGlobal.Config.p - 1;
 
-        ParallelKruskalHelperThread2[] helper = null;
+        ParallelKruskalHelperThread3[] helper = null;
 
         if (numHelpers > 0) {
-            helper = new ParallelKruskalHelperThread2[numHelpers];
+            helper = new ParallelKruskalHelperThread3[numHelpers];
         }
 
         UF uf = new UF(g.getNumVertices());
@@ -48,7 +49,9 @@ public class ParallelKruskal2 {
 
         long b = System.nanoTime();
 
-        Arrays.sort(edgeArray);
+        HeavySort.sort(edgeArray, executor, MyGlobal.Config.p, edgeArrayFactory);
+
+        executor.shutdown();
 
         long c = System.nanoTime();
 
@@ -58,7 +61,7 @@ public class ParallelKruskal2 {
 
             //MyGlobal.verbosePrint("left=" + left + ", right=" + right);
 
-            helper[i] = new ParallelKruskalHelperThread2(left, right, edgeColorHelper, currMain, uf, edgeArray);
+            helper[i] = new ParallelKruskalHelperThread3(left, right, edgeColorHelper, currMain, uf, edgeArray);
 
             helper[i].start();
         }
@@ -112,7 +115,7 @@ public class ParallelKruskal2 {
     }
 }
 
-class ParallelKruskalHelperThread2 extends Thread {
+class ParallelKruskalHelperThread3 extends Thread {
     final int _left;
     final int _right;
 
@@ -123,7 +126,7 @@ class ParallelKruskalHelperThread2 extends Thread {
 
     public double runtime;
 
-    ParallelKruskalHelperThread2(final int left, final int right, int [] edgeColorHelper, AtomicInteger currMain, UF uf, Edge [] edgeArray) {
+    ParallelKruskalHelperThread3(final int left, final int right, int [] edgeColorHelper, AtomicInteger currMain, UF uf, Edge [] edgeArray) {
         _left = left;
         _right = right;
         _edgeColorHelper = edgeColorHelper;

@@ -8,7 +8,6 @@ import java.util.concurrent.atomic.AtomicIntegerArray;
 
 public class ParallelKruskal {
     static final int CYCLE_EDGE = 1;
-    static final int MSF_EDGE = 2;
 
     public static void parallelKruskal(IGraph g) {
         Edge [] edgeArray = new Edge[g.getNumEdges()];
