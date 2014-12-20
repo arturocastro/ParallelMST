@@ -71,7 +71,7 @@ public class ParallelKruskal3 {
         for (int i = currMain.get(); i < edgeArray.length; i = currMain.incrementAndGet()) {
             Edge e = edgeArray[i];
 
-            if (edgeColorHelper[i] != CYCLE_EDGE) {
+            if (edgeColorHelper[i] == 0) {
                 if (!uf.connected(e._u, e._v)) {
                     uf.union(e._u, e._v);
                     result[j++] = e;
