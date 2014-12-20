@@ -1,0 +1,768 @@
+Running on 1 threads
+assign array: 4369.169822
+sort: 1310.89858
+threading: 0.002267
+main kruskal: 166.635984
+5861.735847
+END
+assign array: 4393.591748
+sort: 1321.864463
+threading: 0.001996
+main kruskal: 165.713023
+5895.315714
+END
+assign array: 4380.695993
+sort: 1309.593516
+threading: 0.001691
+main kruskal: 168.305695
+5872.865823
+END
+assign array: 4379.219687
+sort: 1327.790381
+threading: 0.002218
+main kruskal: 165.734736
+5885.972421
+END
+assign array: 4376.562815
+sort: 1296.618349
+threading: 0.001935
+main kruskal: 164.937047
+5851.460685
+END
+assign array: 4379.393381
+sort: 1252.569458
+threading: 0.002131
+main kruskal: 168.383568
+5813.64768
+END
+assign array: 4370.160718
+sort: 1281.888852
+threading: 0.002459
+main kruskal: 166.450233
+5831.635781
+END
+assign array: 4367.563192
+sort: 1342.697282
+threading: 0.001857
+main kruskal: 165.720726
+5890.42221
+END
+assign array: 4395.161493
+sort: 1331.493553
+threading: 0.001934
+main kruskal: 165.87139
+5905.919261
+END
+assign array: 4391.557491
+sort: 1298.402502
+threading: 0.002184
+main kruskal: 166.021036
+5869.774366
+END
+Running on 2 threads
+helper 0 runtime 179.495708
+assign array: 4365.056558
+sort: 1305.813457
+threading: 0.533529
+main kruskal: 165.073132
+5865.986091
+END
+helper 0 runtime 179.709945
+assign array: 4381.255171
+sort: 1297.790352
+threading: 0.543991
+main kruskal: 165.951769
+5874.028396
+END
+helper 0 runtime 176.068331
+assign array: 4373.502127
+sort: 1301.157489
+threading: 0.569208
+main kruskal: 164.792177
+5866.13767
+END
+helper 0 runtime 180.357692
+assign array: 4387.111001
+sort: 1348.773146
+threading: 0.551181
+main kruskal: 166.481039
+5931.514851
+END
+helper 0 runtime 179.280993
+assign array: 4377.996966
+sort: 1282.678236
+threading: 0.553848
+main kruskal: 166.278008
+5854.973679
+END
+helper 0 runtime 174.088597
+assign array: 4390.052206
+sort: 1314.268655
+threading: 0.569171
+main kruskal: 163.254255
+5893.935872
+END
+helper 0 runtime 180.799089
+assign array: 4366.280245
+sort: 1261.443784
+threading: 0.565783
+main kruskal: 166.655202
+5823.769496
+END
+helper 0 runtime 179.257863
+assign array: 4371.214946
+sort: 1355.219999
+threading: 0.551992
+main kruskal: 165.517438
+5921.143524
+END
+helper 0 runtime 181.052511
+assign array: 4371.357307
+sort: 1368.451327
+threading: 0.528451
+main kruskal: 166.811182
+5936.13776
+END
+helper 0 runtime 179.370569
+assign array: 4379.965642
+sort: 1318.916277
+threading: 0.558522
+main kruskal: 166.008469
+5893.435081
+END
+Running on 3 threads
+helper 0 runtime 140.589474
+helper 1 runtime 170.56212
+assign array: 4373.62665
+sort: 1273.473065
+threading: 0.827755
+main kruskal: 155.619311
+5831.630335
+END
+helper 0 runtime 147.006656
+helper 1 runtime 175.357966
+assign array: 4370.682776
+sort: 1367.396097
+threading: 0.79243
+main kruskal: 159.424119
+5927.349724
+END
+helper 0 runtime 131.354679
+helper 1 runtime 133.618392
+assign array: 4378.554851
+sort: 1343.444026
+threading: 0.759677
+main kruskal: 134.890949
+5872.357012
+END
+helper 0 runtime 131.958677
+helper 1 runtime 135.569057
+assign array: 4386.835343
+sort: 1335.004502
+threading: 0.76764
+main kruskal: 137.360355
+5874.783586
+END
+helper 0 runtime 146.115689
+helper 1 runtime 175.133481
+assign array: 4382.751387
+sort: 1319.800436
+threading: 0.870147
+main kruskal: 159.304184
+5891.754589
+END
+helper 0 runtime 141.165524
+helper 1 runtime 171.199111
+assign array: 4371.34373
+sort: 1333.847271
+threading: 0.885352
+main kruskal: 156.25146
+5890.585034
+END
+helper 0 runtime 145.790409
+helper 1 runtime 174.587059
+assign array: 4356.663039
+sort: 1284.657114
+threading: 0.889035
+main kruskal: 158.80408
+5829.882988
+END
+helper 0 runtime 140.624709
+helper 1 runtime 170.551172
+assign array: 4351.805274
+sort: 1268.668491
+threading: 0.891851
+main kruskal: 155.735734
+5805.083829
+END
+helper 0 runtime 130.922918
+helper 1 runtime 134.507661
+assign array: 4401.9746
+sort: 1314.754986
+threading: 0.893168
+main kruskal: 136.420235
+5869.204863
+END
+helper 0 runtime 143.896547
+helper 1 runtime 173.748583
+assign array: 4385.965841
+sort: 1370.239421
+threading: 0.769778
+main kruskal: 158.142273
+5943.866713
+END
+Running on 4 threads
+helper 0 runtime 105.634245
+helper 1 runtime 111.845982
+helper 2 runtime 131.220936
+assign array: 4380.720769
+sort: 1331.807154
+threading: 1.013953
+main kruskal: 125.567772
+5858.119555
+END
+helper 0 runtime 110.85483
+helper 1 runtime 134.951756
+helper 2 runtime 132.331994
+assign array: 4401.547001
+sort: 1323.307824
+threading: 1.241955
+main kruskal: 132.189325
+5873.919423
+END
+helper 0 runtime 110.698949
+helper 1 runtime 133.39208
+helper 2 runtime 130.920817
+assign array: 4385.854596
+sort: 1323.713738
+threading: 1.256937
+main kruskal: 132.930237
+5862.966817
+END
+helper 0 runtime 109.884222
+helper 1 runtime 133.854422
+helper 2 runtime 131.083568
+assign array: 4370.496435
+sort: 1344.368702
+threading: 1.235594
+main kruskal: 132.941532
+5864.190633
+END
+helper 0 runtime 110.90665
+helper 1 runtime 135.569068
+helper 2 runtime 133.108153
+assign array: 4384.086187
+sort: 1358.394191
+threading: 1.125682
+main kruskal: 132.72037
+5892.087622
+END
+helper 0 runtime 110.713401
+helper 1 runtime 133.396935
+helper 2 runtime 131.412659
+assign array: 4377.114598
+sort: 1293.35515
+threading: 2.284958
+main kruskal: 132.932736
+5820.643991
+END
+helper 0 runtime 111.769146
+helper 1 runtime 135.462201
+helper 2 runtime 132.60906
+assign array: 4365.97923
+sort: 1236.988029
+threading: 1.052428
+main kruskal: 134.163191
+5753.274499
+END
+helper 0 runtime 111.461886
+helper 1 runtime 134.702901
+helper 2 runtime 131.805022
+assign array: 4382.286402
+sort: 1274.17125
+threading: 1.111724
+main kruskal: 133.862009
+5806.54004
+END
+helper 0 runtime 103.162424
+helper 1 runtime 109.398704
+helper 2 runtime 129.167151
+assign array: 4387.100567
+sort: 1281.223898
+threading: 1.127676
+main kruskal: 123.593913
+5811.881604
+END
+helper 0 runtime 108.147005
+helper 1 runtime 132.218015
+helper 2 runtime 131.096463
+assign array: 4367.674205
+sort: 1380.154784
+threading: 1.122619
+main kruskal: 130.507107
+5894.702952
+END
+Running on 5 threads
+helper 0 runtime 92.383682
+helper 1 runtime 111.674137
+helper 2 runtime 110.899217
+helper 3 runtime 111.969694
+assign array: 4390.624185
+sort: 1333.371113
+threading: 1.380511
+main kruskal: 118.423337
+5859.493809
+END
+helper 0 runtime 91.546773
+helper 1 runtime 110.370714
+helper 2 runtime 110.596223
+helper 3 runtime 111.557456
+assign array: 4385.890765
+sort: 1270.893797
+threading: 1.385583
+main kruskal: 117.719199
+5790.70528
+END
+helper 0 runtime 92.688643
+helper 1 runtime 109.808738
+helper 2 runtime 110.276227
+helper 3 runtime 111.548825
+assign array: 4368.221506
+sort: 1246.852234
+threading: 1.360391
+main kruskal: 117.805723
+5749.295983
+END
+helper 0 runtime 92.528592
+helper 1 runtime 109.612526
+helper 2 runtime 110.066808
+helper 3 runtime 110.891241
+assign array: 4367.857088
+sort: 1275.014313
+threading: 1.455049
+main kruskal: 117.598599
+5776.766759
+END
+helper 0 runtime 93.539245
+helper 1 runtime 112.085204
+helper 2 runtime 112.118259
+helper 3 runtime 112.747662
+assign array: 4381.925028
+sort: 1253.676223
+threading: 1.611875
+main kruskal: 119.074931
+5771.17346
+END
+helper 0 runtime 92.176494
+helper 1 runtime 109.134123
+helper 2 runtime 109.890293
+helper 3 runtime 110.603884
+assign array: 4367.698462
+sort: 1306.792488
+threading: 1.500287
+main kruskal: 116.955381
+5807.898578
+END
+helper 0 runtime 92.125044
+helper 1 runtime 110.24135
+helper 2 runtime 110.961475
+helper 3 runtime 111.965096
+assign array: 4381.426646
+sort: 1327.490955
+threading: 1.088797
+main kruskal: 118.064182
+5842.869134
+END
+helper 0 runtime 90.073101
+helper 1 runtime 100.360726
+helper 2 runtime 99.156945
+helper 3 runtime 106.936674
+assign array: 4485.106893
+sort: 1539.146282
+threading: 1.536597
+main kruskal: 113.528027
+6155.727083
+END
+helper 0 runtime 87.771623
+helper 1 runtime 92.900799
+helper 2 runtime 108.48586
+helper 3 runtime 104.616125
+assign array: 4376.758207
+sort: 1272.034583
+threading: 1.445165
+main kruskal: 111.385846
+5776.636357
+END
+helper 0 runtime 92.823348
+helper 1 runtime 111.464268
+helper 2 runtime 111.876674
+helper 3 runtime 112.152653
+assign array: 4362.520892
+sort: 1317.1243
+threading: 1.587772
+main kruskal: 118.488744
+5814.473303
+END
+Running on 6 threads
+helper 0 runtime 82.645669
+helper 1 runtime 97.786409
+helper 2 runtime 96.724861
+helper 3 runtime 99.068331
+helper 4 runtime 103.993613
+assign array: 4359.727903
+sort: 1304.190996
+threading: 1.752236
+main kruskal: 110.335962
+5791.538721
+END
+helper 0 runtime 82.557539
+helper 1 runtime 99.216924
+helper 2 runtime 99.024356
+helper 3 runtime 99.505238
+helper 4 runtime 104.38419
+assign array: 4376.631889
+sort: 1270.949762
+threading: 1.776104
+main kruskal: 109.571075
+5774.03814
+END
+helper 0 runtime 82.838071
+helper 1 runtime 98.697313
+helper 2 runtime 97.465558
+helper 3 runtime 99.474639
+helper 4 runtime 105.09537
+assign array: 4372.424308
+sort: 1389.334639
+threading: 1.496164
+main kruskal: 111.2771
+5889.498873
+END
+helper 0 runtime 82.838752
+helper 1 runtime 96.990548
+helper 2 runtime 98.150805
+helper 3 runtime 98.874646
+helper 4 runtime 104.648695
+assign array: 4383.050769
+sort: 1328.685855
+threading: 1.809012
+main kruskal: 110.598117
+5839.172086
+END
+helper 0 runtime 82.339111
+helper 1 runtime 98.16803
+helper 2 runtime 96.730025
+helper 3 runtime 99.228948
+helper 4 runtime 104.98776
+assign array: 4370.449678
+sort: 1348.286208
+threading: 1.728473
+main kruskal: 110.785261
+5846.350426
+END
+helper 0 runtime 81.178789
+helper 1 runtime 97.344205
+helper 2 runtime 97.160037
+helper 3 runtime 98.075284
+helper 4 runtime 103.755628
+assign array: 4387.072568
+sort: 1218.363116
+threading: 1.511822
+main kruskal: 110.018081
+5732.018235
+END
+helper 0 runtime 80.160574
+helper 1 runtime 96.317967
+helper 2 runtime 96.7887
+helper 3 runtime 97.919089
+helper 4 runtime 103.232361
+assign array: 4397.075309
+sort: 1305.505697
+threading: 1.801208
+main kruskal: 109.35531
+5828.641252
+END
+helper 0 runtime 78.20101
+helper 1 runtime 81.886063
+helper 2 runtime 94.757511
+helper 3 runtime 93.181418
+helper 4 runtime 98.306668
+assign array: 4376.549146
+sort: 1285.210136
+threading: 1.756486
+main kruskal: 104.871985
+5783.275501
+END
+helper 0 runtime 81.926319
+helper 1 runtime 96.936018
+helper 2 runtime 96.677256
+helper 3 runtime 97.724527
+helper 4 runtime 103.862674
+assign array: 4372.246707
+sort: 1337.68384
+threading: 1.613165
+main kruskal: 109.764043
+5836.173734
+END
+helper 0 runtime 81.399059
+helper 1 runtime 96.998615
+helper 2 runtime 97.809641
+helper 3 runtime 98.219096
+helper 4 runtime 103.710983
+assign array: 4381.156599
+sort: 1282.616567
+threading: 1.466197
+main kruskal: 110.050062
+5790.22892
+END
+Running on 7 threads
+helper 0 runtime 71.332581
+helper 1 runtime 75.518007
+helper 2 runtime 84.588503
+helper 3 runtime 85.237101
+helper 4 runtime 89.597646
+helper 5 runtime 94.959943
+assign array: 4388.562149
+sort: 1312.92972
+threading: 2.377015
+main kruskal: 99.593709
+5818.594217
+END
+helper 0 runtime 73.984142
+helper 1 runtime 85.683638
+helper 2 runtime 86.025307
+helper 3 runtime 87.643182
+helper 4 runtime 92.874888
+helper 5 runtime 97.999705
+assign array: 4377.609836
+sort: 1345.116327
+threading: 2.195124
+main kruskal: 102.736513
+5842.668406
+END
+helper 0 runtime 74.13235
+helper 1 runtime 87.417065
+helper 2 runtime 85.816425
+helper 3 runtime 88.840545
+helper 4 runtime 93.310125
+helper 5 runtime 98.968397
+assign array: 4373.850647
+sort: 1302.227258
+threading: 2.108926
+main kruskal: 103.424238
+5796.411762
+END
+helper 0 runtime 73.667058
+helper 1 runtime 87.999377
+helper 2 runtime 88.22801
+helper 3 runtime 89.667476
+helper 4 runtime 94.677252
+helper 5 runtime 100.100081
+assign array: 4371.880406
+sort: 1314.083031
+threading: 2.340474
+main kruskal: 104.743345
+5808.215259
+END
+helper 0 runtime 72.537751
+helper 1 runtime 75.750861
+helper 2 runtime 87.136283
+helper 3 runtime 85.47899
+helper 4 runtime 90.312261
+helper 5 runtime 95.985104
+assign array: 4380.518695
+sort: 1316.002304
+threading: 2.492162
+main kruskal: 100.812795
+5814.644915
+END
+helper 0 runtime 75.448759
+helper 1 runtime 89.389149
+helper 2 runtime 87.97505
+helper 3 runtime 90.170107
+helper 4 runtime 94.655193
+helper 5 runtime 99.967712
+assign array: 4392.228741
+sort: 1325.089126
+threading: 2.581524
+main kruskal: 104.533799
+5839.378944
+END
+helper 0 runtime 74.168173
+helper 1 runtime 86.193518
+helper 2 runtime 87.292231
+helper 3 runtime 88.312617
+helper 4 runtime 93.026248
+helper 5 runtime 98.371207
+assign array: 4388.912264
+sort: 1368.089346
+threading: 2.036365
+main kruskal: 102.966372
+5876.664476
+END
+helper 0 runtime 73.618049
+helper 1 runtime 88.073311
+helper 2 runtime 87.185674
+helper 3 runtime 89.443873
+helper 4 runtime 93.817432
+helper 5 runtime 99.244569
+assign array: 4382.597965
+sort: 1342.748172
+threading: 2.270566
+main kruskal: 104.084126
+5846.486875
+END
+helper 0 runtime 73.652265
+helper 1 runtime 86.105874
+helper 2 runtime 86.709485
+helper 3 runtime 88.078258
+helper 4 runtime 93.100303
+helper 5 runtime 98.596962
+assign array: 4363.429138
+sort: 1330.728972
+threading: 1.924462
+main kruskal: 103.013163
+5813.75643
+END
+helper 0 runtime 74.048385
+helper 1 runtime 85.998385
+helper 2 runtime 86.343598
+helper 3 runtime 87.882295
+helper 4 runtime 92.753247
+helper 5 runtime 98.044254
+assign array: 4376.466956
+sort: 1356.27447
+threading: 2.049448
+main kruskal: 102.741045
+5852.399514
+END
+Running on 8 threads
+helper 0 runtime 69.177926
+helper 1 runtime 78.591812
+helper 2 runtime 79.787129
+helper 3 runtime 81.699079
+helper 4 runtime 85.527462
+helper 5 runtime 90.215727
+helper 6 runtime 94.645402
+assign array: 4360.63028
+sort: 1366.015565
+threading: 2.399914
+main kruskal: 98.407249
+5842.938354
+END
+helper 0 runtime 69.91563
+helper 1 runtime 80.312127
+helper 2 runtime 80.966211
+helper 3 runtime 82.966891
+helper 4 runtime 86.919714
+helper 5 runtime 91.664741
+helper 6 runtime 95.886718
+assign array: 4365.999477
+sort: 1300.324697
+threading: 2.158871
+main kruskal: 99.783468
+5782.985208
+END
+helper 0 runtime 68.995689
+helper 1 runtime 79.365873
+helper 2 runtime 80.002662
+helper 3 runtime 81.002886
+helper 4 runtime 84.485011
+helper 5 runtime 88.738152
+helper 6 runtime 92.217726
+assign array: 4376.770957
+sort: 1382.200772
+threading: 2.581229
+main kruskal: 95.815061
+5872.022758
+END
+helper 0 runtime 67.059381
+helper 1 runtime 71.503564
+helper 2 runtime 80.822031
+helper 3 runtime 80.999199
+helper 4 runtime 84.672968
+helper 5 runtime 89.862504
+helper 6 runtime 93.440048
+assign array: 4382.676119
+sort: 1333.130005
+threading: 2.382114
+main kruskal: 98.412372
+5831.576131
+END
+helper 0 runtime 69.662249
+helper 1 runtime 80.739398
+helper 2 runtime 79.628777
+helper 3 runtime 82.770781
+helper 4 runtime 86.820493
+helper 5 runtime 91.118427
+helper 6 runtime 95.408261
+assign array: 4385.450048
+sort: 1308.504499
+threading: 2.495291
+main kruskal: 99.544969
+5810.467482
+END
+helper 0 runtime 69.191176
+helper 1 runtime 75.163243
+helper 2 runtime 81.382565
+helper 3 runtime 85.414303
+helper 4 runtime 90.956084
+helper 5 runtime 96.372371
+helper 6 runtime 101.862333
+assign array: 4485.686907
+sort: 1597.429159
+threading: 2.522806
+main kruskal: 107.106373
+6207.671333
+END
+helper 0 runtime 66.502469
+helper 1 runtime 70.87399
+helper 2 runtime 78.376744
+helper 3 runtime 79.644266
+helper 4 runtime 83.902151
+helper 5 runtime 88.782402
+helper 6 runtime 92.460467
+assign array: 4393.073877
+sort: 1376.639541
+threading: 2.425044
+main kruskal: 97.325506
+5884.543641
+END
+helper 0 runtime 68.07338
+helper 1 runtime 80.702368
+helper 2 runtime 78.825261
+helper 3 runtime 82.453968
+helper 4 runtime 86.571743
+helper 5 runtime 91.447927
+helper 6 runtime 95.25968
+assign array: 4372.9339
+sort: 1338.508088
+threading: 2.379948
+main kruskal: 99.530857
+5827.93678
+END
+helper 0 runtime 69.888386
+helper 1 runtime 81.133237
+helper 2 runtime 79.44417
+helper 3 runtime 82.703342
+helper 4 runtime 86.857934
+helper 5 runtime 91.440416
+helper 6 runtime 95.062327
+assign array: 4382.366158
+sort: 1291.927171
+threading: 2.763519
+main kruskal: 99.309977
+5791.221311
+END
+helper 0 runtime 67.333427
+helper 1 runtime 79.3441
+helper 2 runtime 81.02853
+helper 3 runtime 80.046933
+helper 4 runtime 84.156993
+helper 5 runtime 89.02224
+helper 6 runtime 92.821275
+assign array: 4363.143672
+sort: 1362.719279
+threading: 2.379711
+main kruskal: 96.437767
+5839.4689
+END

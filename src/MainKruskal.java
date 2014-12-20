@@ -51,7 +51,7 @@ public class MainKruskal {
         }
 
         if (MyGlobal.Config.verbose == 1) {
-            System.out.println(g.toString());
+//            System.out.println(g.toString());
         }
 
         final long startTime = System.nanoTime();
