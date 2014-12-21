@@ -1,0 +1,168 @@
+Running on 1 threads
+sort: 24.46348
+main kruskal: 6.609225
+sort: 24.299114
+main kruskal: 8.838866
+sort: 23.308442
+main kruskal: 8.973163
+sort: 23.581578
+main kruskal: 6.925341
+sort: 23.593726
+main kruskal: 8.815037
+sort: 23.140315
+main kruskal: 6.591634
+sort: 23.161611
+main kruskal: 6.774307
+sort: 23.127927
+main kruskal: 6.686767
+sort: 23.261717
+main kruskal: 8.539076
+sort: 23.850743
+main kruskal: 8.733389
+Running on 2 threads
+sort: 32.78953
+main kruskal: 4.788212
+sort: 32.34271
+main kruskal: 4.833858
+sort: 32.216902
+main kruskal: 4.509856
+sort: 32.057263
+main kruskal: 4.808653
+sort: 33.280754
+main kruskal: 4.875277
+sort: 32.045359
+main kruskal: 4.625022
+sort: 33.546077
+main kruskal: 4.445994
+sort: 32.940761
+main kruskal: 4.656287
+sort: 31.682044
+main kruskal: 4.708777
+sort: 31.672911
+main kruskal: 4.452121
+Running on 3 threads
+sort: 31.894618
+main kruskal: 4.601868
+sort: 32.628899
+main kruskal: 4.699216
+sort: 33.693935
+main kruskal: 4.625197
+sort: 30.865919
+main kruskal: 4.764831
+sort: 31.626788
+main kruskal: 4.382083
+sort: 31.399597
+main kruskal: 4.335684
+sort: 34.313627
+main kruskal: 4.633781
+sort: 30.149392
+main kruskal: 4.523474
+sort: 33.976356
+main kruskal: 4.129015
+sort: 30.200865
+main kruskal: 4.34144
+Running on 4 threads
+sort: 31.841032
+main kruskal: 4.695902
+sort: 32.45666
+main kruskal: 4.382236
+sort: 33.911311
+main kruskal: 4.397874
+sort: 31.122491
+main kruskal: 4.322168
+sort: 31.596683
+main kruskal: 4.266417
+sort: 30.595949
+main kruskal: 4.604001
+sort: 30.588681
+main kruskal: 5.093868
+sort: 29.936055
+main kruskal: 4.803913
+sort: 32.171282
+main kruskal: 4.849401
+sort: 35.895789
+main kruskal: 4.475741
+Running on 5 threads
+sort: 31.527488
+main kruskal: 4.790736
+sort: 32.123867
+main kruskal: 4.43977
+sort: 30.937885
+main kruskal: 4.417898
+sort: 30.632885
+main kruskal: 4.670177
+sort: 31.671448
+main kruskal: 4.832574
+sort: 32.185194
+main kruskal: 4.736893
+sort: 30.648046
+main kruskal: 4.312368
+sort: 31.929027
+main kruskal: 4.814691
+sort: 30.772043
+main kruskal: 4.937714
+sort: 32.167778
+main kruskal: 4.72749
+Running on 6 threads
+sort: 33.78083
+main kruskal: 4.747781
+sort: 32.076323
+main kruskal: 4.799321
+sort: 33.358535
+main kruskal: 4.560402
+sort: 33.825528
+main kruskal: 4.703613
+sort: 31.595372
+main kruskal: 4.905983
+sort: 34.247182
+main kruskal: 4.54222
+sort: 31.879253
+main kruskal: 4.582528
+sort: 34.149969
+main kruskal: 4.940731
+sort: 34.839854
+main kruskal: 4.656273
+sort: 33.401997
+main kruskal: 4.480391
+Running on 7 threads
+sort: 35.260262
+main kruskal: 4.609653
+sort: 33.880048
+main kruskal: 4.65059
+sort: 33.776353
+main kruskal: 4.747902
+sort: 34.038518
+main kruskal: 4.562031
+sort: 33.64782
+main kruskal: 4.804758
+sort: 35.552419
+main kruskal: 4.568479
+sort: 34.883606
+main kruskal: 4.861088
+sort: 35.773217
+main kruskal: 4.681302
+sort: 33.65057
+main kruskal: 4.762473
+sort: 33.925002
+main kruskal: 4.411457
+Running on 8 threads
+sort: 36.721385
+main kruskal: 4.543358
+sort: 35.082895
+main kruskal: 4.515617
+sort: 36.549592
+main kruskal: 4.768461
+sort: 35.140163
+main kruskal: 4.505162
+sort: 34.310947
+main kruskal: 5.03349
+sort: 36.00407
+main kruskal: 4.761316
+sort: 35.712212
+main kruskal: 4.671071
+sort: 36.037225
+main kruskal: 4.936163
+sort: 35.475826
+main kruskal: 4.799528
+sort: 36.035355
+main kruskal: 4.795332
