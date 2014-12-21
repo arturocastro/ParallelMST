@@ -1,3 +1,6 @@
+import joptsimple.OptionParser;
+import joptsimple.OptionSet;
+
 /**
  * Created by Arturo Isai Castro Perpuli on 29/11/2014.
  */
@@ -5,47 +8,54 @@
 public class Main {
 
     public static void main(String[] args) {
-        // Number of threads
-        if (args.length > 0) {
-            MyGlobal.Config.p = Integer.parseInt(args[0]);
+
+        OptionParser parser = new OptionParser("V:E:vdp:l");
+        OptionSet options = parser.parse(args);
+
+        int V = 1000;
+        double E = 0.5;
+
+        if (options.has("V") && options.hasArgument("V")) {
+            V = Integer.parseInt((String) options.valueOf("V"));
         }
 
-        // Nb
-        if (args.length > 1) {
-            MyGlobal.Config.nb = Integer.parseInt(args[1]);
+        if (options.has("E") && options.hasArgument("E")) {
+            E = Integer.parseInt((String)options.valueOf("E")) / 100.0;
         }
 
-        // Verbose
-        if (args.length > 2) {
-            MyGlobal.Config.verbose = Integer.parseInt(args[2]);
+        if (options.has("p") && options.hasArgument("p")) {
+            MyGlobal.Config.p = Integer.parseInt((String) options.valueOf("p"));
         }
 
-        // Debug
-        if (args.length > 3) {
-            MyGlobal.Config.debug = Integer.parseInt(args[3]);
+        if (options.has("l")) {
+            MyGlobal.Config.op = 1;
         }
 
-        System.out.println(Main.class.getProtectionDomain().getCodeSource().getLocation().getFile());
-        AdjMatGraph g = new AdjMatGraph("C:\\Users\\Soluna\\IdeaProjects\\MST\\data\\oreilly.txt");
+        if (options.has("v")) {
+            MyGlobal.Config.verbose = 1;
+        }
+
+        if (options.has("d")) {
+            MyGlobal.Config.debug = 1;
+        }
+
+        //System.out.println(Main.class.getProtectionDomain().getCodeSource().getLocation().getFile());
+        //AdjMatGraph g = new AdjMatGraph("C:\\Users\\Soluna\\IdeaProjects\\MST\\data\\oreilly.txt");
 
         //IGraph a = Prim.prim(g);
 
         //Kruskal.kruskal(g);
 
-        IGraph g2 = GraphGenerator.simple(10, 10);
+        IGraph g = GraphGenerator.simple(4, 5);
 
         //System.out.println(g.toString());
         //System.out.println(a.toString());
 
-        ParallelKruskal.parallelKruskal(g);
+        System.out.println(g.toString());
+
+        Kruskal.kruskal(g);
 
         System.out.println();
-
-        Boruvka.boruvka(g);
-
-        System.out.println();
-
-        ParallelBoruvka.parallelBoruvka(g);
 
 //        MPI.Init(args);
 //

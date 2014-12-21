@@ -45,6 +45,8 @@ public class Kruskal {
             if (!MST.check(g, mst)) {
                 MyGlobal.abort("Not correct!");
             }
+
+            System.out.println(mst.toString());
         }
 
         System.out.println("sort " + (b - a) / 1000000.0);

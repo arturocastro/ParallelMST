@@ -1,3 +1,5 @@
+import java.util.DoubleSummaryStatistics;
+
 /**
  * Created by Arturo Isai Castro Perpuli on 02/12/2014.
  */
@@ -40,7 +42,7 @@ class Edge implements Comparable<Edge> {
 
     @Override
     public String toString() {
-        return (new StringBuilder("n").append(Integer.toString(_u)).append(" -- n").append(Integer.toString(_v)).append(";")).toString();
+        return (new StringBuilder("n").append(Integer.toString(_u)).append(" -- n").append(Integer.toString(_v)).append(" [label=\"").append(String.format("%.1f", _weight)).append("\"];")).toString();
     }
 
     @Override

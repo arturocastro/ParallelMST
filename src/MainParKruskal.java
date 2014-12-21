@@ -56,7 +56,7 @@ public class MainParKruskal {
 
         final long startTime = System.nanoTime();
 
-        ParallelKruskal2.parallelKruskal(g);
+        ParallelKruskal4.parallelKruskal(g);
 
         final long endTime = System.nanoTime();
 
