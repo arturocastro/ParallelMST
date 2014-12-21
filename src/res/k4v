@@ -1,0 +1,1128 @@
+Running on 1 threads
+1598987
+assign array: 4362.535204
+sort: 1827.467444
+threading: 9.59E-4
+main kruskal: 163.481142
+6370.711268
+END
+1598389
+assign array: 4383.678253
+sort: 1845.890875
+threading: 8.62E-4
+main kruskal: 165.016551
+6412.052603
+END
+1599025
+assign array: 4373.469272
+sort: 1865.509282
+threading: 9.26E-4
+main kruskal: 163.078826
+6418.925954
+END
+1598774
+assign array: 4384.265042
+sort: 1833.497998
+threading: 8.07E-4
+main kruskal: 167.345968
+6401.433674
+END
+1598539
+assign array: 4364.107895
+sort: 1932.971927
+threading: 0.001281
+main kruskal: 163.818736
+6476.906899
+END
+1598747
+assign array: 4383.194553
+sort: 1874.905457
+threading: 9.1E-4
+main kruskal: 164.887183
+6439.074861
+END
+1598983
+assign array: 4355.543328
+sort: 1878.788832
+threading: 7.81E-4
+main kruskal: 163.7123
+6413.973066
+END
+1599462
+assign array: 4376.746088
+sort: 1808.011038
+threading: 7.01E-4
+main kruskal: 163.810203
+6364.713564
+END
+1598821
+assign array: 4381.485563
+sort: 1856.073611
+threading: 0.001016
+main kruskal: 163.084995
+6416.661531
+END
+1599896
+assign array: 4378.442014
+sort: 1856.290829
+threading: 9.93E-4
+main kruskal: 172.611747
+6423.311305
+END
+Running on 2 threads
+1599165
+id=0, left=799582, right=1599163
+helper 0 runtime 178.813074
+assign array: 4386.246686
+sort: 1324.72008
+threading: 2.139726
+main kruskal: 167.187947
+5909.80385
+END
+1600173
+id=0, left=800086, right=1600171
+helper 0 runtime 178.634349
+assign array: 4383.182827
+sort: 1295.456948
+threading: 2.126828
+main kruskal: 166.728283
+5876.92197
+END
+1599174
+id=0, left=799587, right=1599173
+helper 0 runtime 174.261555
+assign array: 4381.625675
+sort: 1217.391311
+threading: 1.8885
+main kruskal: 165.284369
+5792.478598
+END
+1598867
+id=0, left=799433, right=1598865
+helper 0 runtime 191.069929
+assign array: 4372.490987
+sort: 1285.178507
+threading: 1.717183
+main kruskal: 187.670989
+5867.932763
+END
+1599267
+id=0, left=799633, right=1599265
+helper 0 runtime 179.696779
+assign array: 4377.646648
+sort: 1354.01847
+threading: 1.908725
+main kruskal: 167.555951
+5930.509689
+END
+1598500
+id=0, left=799250, right=1598499
+helper 0 runtime 178.508386
+assign array: 4375.589407
+sort: 1324.027835
+threading: 1.894299
+main kruskal: 166.863032
+5897.234382
+END
+1599894
+id=0, left=799947, right=1599893
+helper 0 runtime 179.633287
+assign array: 4404.390902
+sort: 1269.979453
+threading: 1.913008
+main kruskal: 167.082431
+5873.337155
+END
+1599489
+id=0, left=799744, right=1599487
+helper 0 runtime 174.493381
+assign array: 4386.957729
+sort: 1127.963452
+threading: 2.069114
+main kruskal: 165.151628
+5708.949285
+END
+1598932
+id=0, left=799466, right=1598931
+helper 0 runtime 179.337798
+assign array: 4362.773788
+sort: 1247.914469
+threading: 1.961889
+main kruskal: 167.336127
+5809.208525
+END
+1600240
+id=0, left=800120, right=1600239
+helper 0 runtime 175.5784
+assign array: 4401.015922
+sort: 1122.123139
+threading: 2.24174
+main kruskal: 166.073929
+5718.406969
+END
+Running on 3 threads
+1599218
+id=0, left=533072, right=1066143
+id=1, left=1066144, right=1599215
+helper 0 runtime 161.052612
+helper 1 runtime 173.298873
+assign array: 4374.136693
+sort: 963.920971
+threading: 1.989846
+main kruskal: 158.861788
+5529.245542
+END
+1599606
+id=0, left=533202, right=1066403
+id=1, left=1066404, right=1599605
+helper 0 runtime 139.872791
+helper 1 runtime 139.673721
+assign array: 4383.754508
+sort: 1047.113544
+threading: 2.434412
+main kruskal: 139.784949
+5590.911949
+END
+1600377
+id=0, left=533459, right=1066917
+id=1, left=1066918, right=1600376
+helper 0 runtime 161.150998
+helper 1 runtime 173.424796
+assign array: 4377.296653
+sort: 1035.845438
+threading: 2.351111
+main kruskal: 158.894395
+5604.931912
+END
+1599267
+id=0, left=533089, right=1066177
+id=1, left=1066178, right=1599266
+helper 0 runtime 159.445924
+helper 1 runtime 171.692306
+assign array: 4387.808982
+sort: 1067.991715
+threading: 2.115485
+main kruskal: 157.350107
+5645.508965
+END
+1599069
+id=0, left=533023, right=1066045
+id=1, left=1066046, right=1599068
+helper 0 runtime 159.837031
+helper 1 runtime 172.124139
+assign array: 4371.594351
+sort: 1070.16254
+threading: 2.414673
+main kruskal: 158.080248
+5632.162986
+END
+1598292
+id=0, left=532764, right=1065527
+id=1, left=1065528, right=1598291
+helper 0 runtime 161.1839
+helper 1 runtime 173.433802
+assign array: 4377.480681
+sort: 1064.026318
+threading: 2.245483
+main kruskal: 158.764171
+5632.923814
+END
+1599934
+id=0, left=533311, right=1066621
+id=1, left=1066622, right=1599932
+helper 0 runtime 162.16332
+helper 1 runtime 174.434161
+assign array: 4381.926454
+sort: 1018.451979
+threading: 2.234582
+main kruskal: 159.869864
+5592.953849
+END
+1599398
+id=0, left=533132, right=1066263
+id=1, left=1066264, right=1599395
+helper 0 runtime 163.048084
+helper 1 runtime 175.299036
+assign array: 4376.18144
+sort: 1024.941939
+threading: 2.285101
+main kruskal: 159.744666
+5594.484242
+END
+1598776
+id=0, left=532925, right=1065849
+id=1, left=1065850, right=1598774
+helper 0 runtime 160.431462
+helper 1 runtime 172.672251
+assign array: 4389.36298
+sort: 1064.541922
+threading: 2.177935
+main kruskal: 158.272702
+5644.471116
+END
+1599402
+id=0, left=533134, right=1066267
+id=1, left=1066268, right=1599401
+helper 0 runtime 161.975012
+helper 1 runtime 174.233836
+assign array: 4368.277816
+sort: 1019.91528
+threading: 2.278929
+main kruskal: 159.537544
+5580.725796
+END
+Running on 4 threads
+1599663
+id=0, left=399915, right=799829
+id=1, left=799830, right=1199744
+id=2, left=1199745, right=1599659
+helper 0 runtime 135.164589
+helper 1 runtime 135.025477
+helper 2 runtime 134.757555
+assign array: 4378.562116
+sort: 922.97424
+threading: 2.275234
+main kruskal: 134.867253
+5456.564297
+END
+1599309
+id=0, left=399827, right=799653
+id=1, left=799654, right=1199480
+id=2, left=1199481, right=1599307
+helper 0 runtime 126.441868
+helper 1 runtime 125.446371
+helper 2 runtime 129.356964
+assign array: 4375.58763
+sort: 973.558235
+threading: 2.906192
+main kruskal: 124.912468
+5497.425952
+END
+1599585
+id=0, left=399896, right=799791
+id=1, left=799792, right=1199687
+id=2, left=1199688, right=1599583
+helper 0 runtime 126.519264
+helper 1 runtime 126.586095
+helper 2 runtime 129.305733
+assign array: 4375.961676
+sort: 947.436837
+threading: 2.956052
+main kruskal: 125.790338
+5471.538132
+END
+1598401
+id=0, left=399600, right=799199
+id=1, left=799200, right=1198799
+id=2, left=1198800, right=1598399
+helper 0 runtime 132.079432
+helper 1 runtime 131.808546
+helper 2 runtime 132.553065
+assign array: 4374.314866
+sort: 871.582138
+threading: 3.094011
+main kruskal: 131.695818
+5398.466185
+END
+1598522
+id=0, left=399630, right=799259
+id=1, left=799260, right=1198889
+id=2, left=1198890, right=1598519
+helper 0 runtime 137.21245
+helper 1 runtime 136.528154
+helper 2 runtime 135.097308
+assign array: 4382.295833
+sort: 931.776723
+threading: 2.710329
+main kruskal: 134.930321
+5470.831898
+END
+1599964
+id=0, left=399991, right=799981
+id=1, left=799982, right=1199972
+id=2, left=1199973, right=1599963
+helper 0 runtime 134.643489
+helper 1 runtime 134.002872
+helper 2 runtime 133.182283
+assign array: 4372.778272
+sort: 925.630751
+threading: 2.463919
+main kruskal: 132.768164
+5452.248174
+END
+1598902
+id=0, left=399725, right=799449
+id=1, left=799450, right=1199174
+id=2, left=1199175, right=1598899
+helper 0 runtime 126.371891
+helper 1 runtime 125.41449
+helper 2 runtime 128.444699
+assign array: 4368.413529
+sort: 886.122322
+threading: 2.386237
+main kruskal: 125.287543
+5401.326981
+END
+1599568
+id=0, left=399892, right=799783
+id=1, left=799784, right=1199675
+id=2, left=1199676, right=1599567
+helper 0 runtime 135.137397
+helper 1 runtime 135.553781
+helper 2 runtime 134.7628
+assign array: 4378.096975
+sort: 926.719355
+threading: 2.838258
+main kruskal: 134.681977
+5460.086846
+END
+1600047
+id=0, left=400011, right=800021
+id=1, left=800022, right=1200032
+id=2, left=1200033, right=1600043
+helper 0 runtime 125.718978
+helper 1 runtime 124.792851
+helper 2 runtime 127.784497
+assign array: 4379.813644
+sort: 918.868262
+threading: 2.957967
+main kruskal: 124.682653
+5445.351954
+END
+1599743
+id=0, left=399935, right=799869
+id=1, left=799870, right=1199804
+id=2, left=1199805, right=1599739
+helper 0 runtime 134.143095
+helper 1 runtime 133.269552
+helper 2 runtime 133.916769
+assign array: 4384.760891
+sort: 889.648019
+threading: 2.826967
+main kruskal: 133.126433
+5428.188941
+END
+Running on 5 threads
+1599595
+id=0, left=319919, right=639837
+id=1, left=639838, right=959756
+id=2, left=959757, right=1279675
+id=3, left=1279676, right=1599594
+helper 0 runtime 110.900963
+helper 1 runtime 110.708109
+helper 2 runtime 110.491864
+helper 3 runtime 110.244224
+assign array: 4382.435644
+sort: 796.706816
+threading: 3.068186
+main kruskal: 110.417595
+5310.521434
+END
+1599072
+id=0, left=319814, right=639627
+id=1, left=639628, right=959441
+id=2, left=959442, right=1279255
+id=3, left=1279256, right=1599069
+helper 0 runtime 118.648291
+helper 1 runtime 118.428241
+helper 2 runtime 118.239461
+helper 3 runtime 118.036447
+assign array: 4373.871671
+sort: 865.18871
+threading: 2.958333
+main kruskal: 118.155185
+5377.858751
+END
+1599291
+id=0, left=319858, right=639715
+id=1, left=639716, right=959573
+id=2, left=959574, right=1279431
+id=3, left=1279432, right=1599289
+helper 0 runtime 120.618579
+helper 1 runtime 120.423208
+helper 2 runtime 120.229339
+helper 3 runtime 119.946013
+assign array: 4374.376373
+sort: 842.577368
+threading: 3.283394
+main kruskal: 120.125254
+5358.484713
+END
+1599087
+id=0, left=319817, right=639633
+id=1, left=639634, right=959450
+id=2, left=959451, right=1279267
+id=3, left=1279268, right=1599084
+helper 0 runtime 119.765994
+helper 1 runtime 119.557372
+helper 2 runtime 119.335418
+helper 3 runtime 119.100307
+assign array: 4380.087201
+sort: 821.420031
+threading: 3.498867
+main kruskal: 119.234108
+5342.254077
+END
+1599486
+id=0, left=319897, right=639793
+id=1, left=639794, right=959690
+id=2, left=959691, right=1279587
+id=3, left=1279588, right=1599484
+helper 0 runtime 140.101073
+helper 1 runtime 139.932835
+helper 2 runtime 139.716866
+helper 3 runtime 139.521516
+assign array: 4673.974127
+sort: 804.94254
+threading: 3.629772
+main kruskal: 139.633155
+5640.356738
+END
+1599538
+id=0, left=319907, right=639813
+id=1, left=639814, right=959720
+id=2, left=959721, right=1279627
+id=3, left=1279628, right=1599534
+helper 0 runtime 118.666554
+helper 1 runtime 118.484555
+helper 2 runtime 118.281849
+helper 3 runtime 118.070122
+assign array: 4382.4648
+sort: 938.846258
+threading: 3.51033
+main kruskal: 118.198339
+5460.823226
+END
+1598845
+id=0, left=319769, right=639537
+id=1, left=639538, right=959306
+id=2, left=959307, right=1279075
+id=3, left=1279076, right=1598844
+helper 0 runtime 121.505836
+helper 1 runtime 121.277795
+helper 2 runtime 121.10049
+helper 3 runtime 120.890096
+assign array: 4380.793143
+sort: 863.871003
+threading: 3.295969
+main kruskal: 121.017241
+5387.067805
+END
+1599930
+id=0, left=319986, right=639971
+id=1, left=639972, right=959957
+id=2, left=959958, right=1279943
+id=3, left=1279944, right=1599929
+helper 0 runtime 120.901623
+helper 1 runtime 120.652453
+helper 2 runtime 120.449667
+helper 3 runtime 120.248031
+assign array: 4377.953134
+sort: 813.12601
+threading: 3.186085
+main kruskal: 120.38745
+5332.254544
+END
+1598298
+id=0, left=319659, right=639317
+id=1, left=639318, right=958976
+id=2, left=958977, right=1278635
+id=3, left=1278636, right=1598294
+helper 0 runtime 118.491128
+helper 1 runtime 118.279367
+helper 2 runtime 118.091232
+helper 3 runtime 117.875535
+assign array: 4357.88501
+sort: 799.756479
+threading: 3.336884
+main kruskal: 118.007547
+5297.137205
+END
+1600392
+id=0, left=320078, right=640155
+id=1, left=640156, right=960233
+id=2, left=960234, right=1280311
+id=3, left=1280312, right=1600389
+helper 0 runtime 112.1557
+helper 1 runtime 111.963545
+helper 2 runtime 111.919484
+helper 3 runtime 111.532245
+assign array: 4389.391081
+sort: 839.791058
+threading: 3.3384
+main kruskal: 111.667459
+5362.423814
+END
+Running on 6 threads
+1598900
+id=0, left=266483, right=532965
+id=1, left=532966, right=799448
+id=2, left=799449, right=1065931
+id=3, left=1065932, right=1332414
+id=4, left=1332415, right=1598897
+helper 0 runtime 107.504316
+helper 1 runtime 107.304957
+helper 2 runtime 107.093694
+helper 3 runtime 106.872499
+helper 4 runtime 106.654128
+assign array: 4372.220981
+sort: 811.391116
+threading: 3.291536
+main kruskal: 106.802461
+5312.118148
+END
+1598958
+id=0, left=266493, right=532985
+id=1, left=532986, right=799478
+id=2, left=799479, right=1065971
+id=3, left=1065972, right=1332464
+id=4, left=1332465, right=1598957
+helper 0 runtime 113.206154
+helper 1 runtime 112.9706
+helper 2 runtime 112.783847
+helper 3 runtime 112.579034
+helper 4 runtime 112.381469
+assign array: 4385.383126
+sort: 898.716918
+threading: 3.951245
+main kruskal: 112.507204
+5418.85138
+END
+1599632
+id=0, left=266605, right=533209
+id=1, left=533210, right=799814
+id=2, left=799815, right=1066419
+id=3, left=1066420, right=1333024
+id=4, left=1333025, right=1599629
+helper 0 runtime 108.520205
+helper 1 runtime 108.316957
+helper 2 runtime 108.131412
+helper 3 runtime 107.931649
+helper 4 runtime 107.71265
+assign array: 4370.875891
+sort: 844.090473
+threading: 3.682592
+main kruskal: 107.835531
+5344.697288
+END
+1598152
+id=0, left=266358, right=532715
+id=1, left=532716, right=799073
+id=2, left=799074, right=1065431
+id=3, left=1065432, right=1331789
+id=4, left=1331790, right=1598147
+helper 0 runtime 112.887123
+helper 1 runtime 112.647763
+helper 2 runtime 112.474226
+helper 3 runtime 112.252081
+helper 4 runtime 112.048547
+assign array: 4362.812367
+sort: 804.914477
+threading: 3.637584
+main kruskal: 112.167596
+5301.801322
+END
+1598804
+id=0, left=266467, right=532933
+id=1, left=532934, right=799400
+id=2, left=799401, right=1065867
+id=3, left=1065868, right=1332334
+id=4, left=1332335, right=1598801
+helper 0 runtime 119.615787
+helper 1 runtime 119.376546
+helper 2 runtime 119.176881
+helper 3 runtime 118.961597
+helper 4 runtime 118.740489
+assign array: 4377.513241
+sort: 824.543161
+threading: 3.868608
+main kruskal: 118.881351
+5343.443867
+END
+1598357
+id=0, left=266392, right=532783
+id=1, left=532784, right=799175
+id=2, left=799176, right=1065567
+id=3, left=1065568, right=1331959
+id=4, left=1331960, right=1598351
+helper 0 runtime 113.235401
+helper 1 runtime 113.020459
+helper 2 runtime 112.811076
+helper 3 runtime 112.604857
+helper 4 runtime 112.40395
+assign array: 4367.643392
+sort: 813.241874
+threading: 3.708194
+main kruskal: 112.528601
+5315.121648
+END
+1598782
+id=0, left=266463, right=532925
+id=1, left=532926, right=799388
+id=2, left=799389, right=1065851
+id=3, left=1065852, right=1332314
+id=4, left=1332315, right=1598777
+helper 0 runtime 115.781659
+helper 1 runtime 115.586256
+helper 2 runtime 115.395529
+helper 3 runtime 115.172252
+helper 4 runtime 114.958295
+assign array: 4391.41063
+sort: 763.323186
+threading: 3.84334
+main kruskal: 115.079635
+5292.312394
+END
+1599140
+id=0, left=266523, right=533045
+id=1, left=533046, right=799568
+id=2, left=799569, right=1066091
+id=3, left=1066092, right=1332614
+id=4, left=1332615, right=1599137
+helper 0 runtime 112.562608
+helper 1 runtime 112.320961
+helper 2 runtime 112.154531
+helper 3 runtime 111.942977
+helper 4 runtime 111.741213
+assign array: 4376.271025
+sort: 737.571624
+threading: 3.506664
+main kruskal: 111.865711
+5247.421708
+END
+1599413
+id=0, left=266568, right=533135
+id=1, left=533136, right=799703
+id=2, left=799704, right=1066271
+id=3, left=1066272, right=1332839
+id=4, left=1332840, right=1599407
+helper 0 runtime 116.370778
+helper 1 runtime 116.142742
+helper 2 runtime 115.936513
+helper 3 runtime 115.709375
+helper 4 runtime 115.5001
+assign array: 4390.077788
+sort: 758.640566
+threading: 4.086596
+main kruskal: 115.631476
+5287.014113
+END
+1599891
+id=0, left=266648, right=533295
+id=1, left=533296, right=799943
+id=2, left=799944, right=1066591
+id=3, left=1066592, right=1333239
+id=4, left=1333240, right=1599887
+helper 0 runtime 113.677122
+helper 1 runtime 113.480879
+helper 2 runtime 113.291031
+helper 3 runtime 113.089276
+helper 4 runtime 112.884314
+assign array: 4381.843217
+sort: 832.808713
+threading: 3.834437
+main kruskal: 113.005459
+5350.104433
+END
+Running on 7 threads
+1599537
+id=0, left=228505, right=457009
+id=1, left=457010, right=685514
+id=2, left=685515, right=914019
+id=3, left=914020, right=1142524
+id=4, left=1142525, right=1371029
+id=5, left=1371030, right=1599534
+helper 0 runtime 107.705447
+helper 1 runtime 107.467905
+helper 2 runtime 107.276865
+helper 3 runtime 107.069461
+helper 4 runtime 106.869463
+helper 5 runtime 106.657727
+assign array: 4384.767892
+sort: 786.878944
+threading: 3.877678
+main kruskal: 106.788873
+5300.829168
+END
+1598852
+id=0, left=228407, right=456813
+id=1, left=456814, right=685220
+id=2, left=685221, right=913627
+id=3, left=913628, right=1142034
+id=4, left=1142035, right=1370441
+id=5, left=1370442, right=1598848
+helper 0 runtime 108.039074
+helper 1 runtime 107.839884
+helper 2 runtime 107.646453
+helper 3 runtime 107.43496
+helper 4 runtime 107.214508
+helper 5 runtime 106.990718
+assign array: 4387.84841
+sort: 743.793095
+threading: 3.721433
+main kruskal: 107.123327
+5261.170031
+END
+1600331
+id=0, left=228618, right=457235
+id=1, left=457236, right=685853
+id=2, left=685854, right=914471
+id=3, left=914472, right=1143089
+id=4, left=1143090, right=1371707
+id=5, left=1371708, right=1600325
+helper 0 runtime 108.305933
+helper 1 runtime 108.091396
+helper 2 runtime 107.910759
+helper 3 runtime 107.710713
+helper 4 runtime 107.499121
+helper 5 runtime 107.273922
+assign array: 4382.873226
+sort: 781.386892
+threading: 4.171542
+main kruskal: 107.418651
+5294.231362
+END
+1599119
+id=0, left=228445, right=456889
+id=1, left=456890, right=685334
+id=2, left=685335, right=913779
+id=3, left=913780, right=1142224
+id=4, left=1142225, right=1370669
+id=5, left=1370670, right=1599114
+helper 0 runtime 107.185096
+helper 1 runtime 106.975459
+helper 2 runtime 106.78831
+helper 3 runtime 106.580994
+helper 4 runtime 106.388969
+helper 5 runtime 106.177992
+assign array: 4391.16806
+sort: 788.81134
+threading: 3.711145
+main kruskal: 106.307756
+5308.421524
+END
+1600106
+id=0, left=228586, right=457171
+id=1, left=457172, right=685757
+id=2, left=685758, right=914343
+id=3, left=914344, right=1142929
+id=4, left=1142930, right=1371515
+id=5, left=1371516, right=1600101
+helper 0 runtime 115.405589
+helper 1 runtime 115.267813
+helper 2 runtime 115.034757
+helper 3 runtime 114.841476
+helper 4 runtime 114.631622
+helper 5 runtime 114.418234
+assign array: 4570.44306
+sort: 821.052685
+threading: 3.086031
+main kruskal: 114.54478
+5527.771369
+END
+1599171
+id=0, left=228453, right=456905
+id=1, left=456906, right=685358
+id=2, left=685359, right=913811
+id=3, left=913812, right=1142264
+id=4, left=1142265, right=1370717
+id=5, left=1370718, right=1599170
+helper 0 runtime 115.830332
+helper 1 runtime 115.607797
+helper 2 runtime 115.396597
+helper 3 runtime 115.170451
+helper 4 runtime 114.982833
+helper 5 runtime 114.751837
+assign array: 4384.601024
+sort: 783.412452
+threading: 4.168151
+main kruskal: 114.892396
+5305.678598
+END
+1598955
+id=0, left=228422, right=456843
+id=1, left=456844, right=685265
+id=2, left=685266, right=913687
+id=3, left=913688, right=1142109
+id=4, left=1142110, right=1370531
+id=5, left=1370532, right=1598953
+helper 0 runtime 107.634983
+helper 1 runtime 107.420394
+helper 2 runtime 107.237541
+helper 3 runtime 107.032779
+helper 4 runtime 106.831909
+helper 5 runtime 106.624886
+assign array: 4389.793571
+sort: 699.507172
+threading: 4.33853
+main kruskal: 106.752995
+5219.204421
+END
+1599453
+id=0, left=228493, right=456985
+id=1, left=456986, right=685478
+id=2, left=685479, right=913971
+id=3, left=913972, right=1142464
+id=4, left=1142465, right=1370957
+id=5, left=1370958, right=1599450
+helper 0 runtime 107.476698
+helper 1 runtime 107.286923
+helper 2 runtime 107.094307
+helper 3 runtime 106.895495
+helper 4 runtime 106.676221
+helper 5 runtime 106.48048
+assign array: 4376.597662
+sort: 680.779018
+threading: 3.94275
+main kruskal: 106.614243
+5186.610711
+END
+1599476
+id=0, left=228496, right=456991
+id=1, left=456992, right=685487
+id=2, left=685488, right=913983
+id=3, left=913984, right=1142479
+id=4, left=1142480, right=1370975
+id=5, left=1370976, right=1599471
+helper 0 runtime 103.676481
+helper 1 runtime 103.47123
+helper 2 runtime 103.233758
+helper 3 runtime 103.065607
+helper 4 runtime 102.837965
+helper 5 runtime 102.655099
+assign array: 4383.333953
+sort: 745.905893
+threading: 4.092119
+main kruskal: 102.773097
+5254.529006
+END
+1598757
+id=0, left=228393, right=456785
+id=1, left=456786, right=685178
+id=2, left=685179, right=913571
+id=3, left=913572, right=1141964
+id=4, left=1141965, right=1370357
+id=5, left=1370358, right=1598750
+helper 0 runtime 114.810212
+helper 1 runtime 114.589805
+helper 2 runtime 114.385519
+helper 3 runtime 114.159065
+helper 4 runtime 113.958553
+helper 5 runtime 113.733238
+assign array: 4375.438215
+sort: 745.636213
+threading: 3.947161
+main kruskal: 113.875751
+5257.480337
+END
+Running on 8 threads
+1599035
+id=0, left=199879, right=399757
+id=1, left=399758, right=599636
+id=2, left=599637, right=799515
+id=3, left=799516, right=999394
+id=4, left=999395, right=1199273
+id=5, left=1199274, right=1399152
+id=6, left=1399153, right=1599031
+helper 0 runtime 103.983258
+helper 1 runtime 103.761466
+helper 2 runtime 103.566638
+helper 3 runtime 103.362094
+helper 4 runtime 103.15565
+helper 5 runtime 102.942652
+helper 6 runtime 102.758432
+assign array: 4375.349969
+sort: 752.24647
+threading: 4.486963
+main kruskal: 102.877252
+5253.566226
+END
+1599025
+id=0, left=199878, right=399755
+id=1, left=399756, right=599633
+id=2, left=599634, right=799511
+id=3, left=799512, right=999389
+id=4, left=999390, right=1199267
+id=5, left=1199268, right=1399145
+id=6, left=1399146, right=1599023
+helper 0 runtime 98.632526
+helper 1 runtime 98.457015
+helper 2 runtime 98.241232
+helper 3 runtime 98.046102
+helper 4 runtime 97.828028
+helper 5 runtime 97.602167
+helper 6 runtime 97.362929
+assign array: 4386.286349
+sort: 752.654891
+threading: 4.379706
+main kruskal: 97.514441
+5260.064562
+END
+1599564
+id=0, left=199945, right=399889
+id=1, left=399890, right=599834
+id=2, left=599835, right=799779
+id=3, left=799780, right=999724
+id=4, left=999725, right=1199669
+id=5, left=1199670, right=1399614
+id=6, left=1399615, right=1599559
+helper 0 runtime 103.244272
+helper 1 runtime 103.040379
+helper 2 runtime 102.831358
+helper 3 runtime 102.629462
+helper 4 runtime 102.421597
+helper 5 runtime 102.220421
+helper 6 runtime 102.048773
+assign array: 4371.299655
+sort: 731.672213
+threading: 4.999634
+main kruskal: 102.15609
+5228.765339
+END
+1599345
+id=0, left=199918, right=399835
+id=1, left=399836, right=599753
+id=2, left=599754, right=799671
+id=3, left=799672, right=999589
+id=4, left=999590, right=1199507
+id=5, left=1199508, right=1399425
+id=6, left=1399426, right=1599343
+helper 0 runtime 100.985859
+helper 1 runtime 100.835815
+helper 2 runtime 100.59178
+helper 3 runtime 100.389993
+helper 4 runtime 100.170553
+helper 5 runtime 99.94871
+helper 6 runtime 99.698568
+assign array: 4400.936378
+sort: 763.393317
+threading: 5.14856
+main kruskal: 99.873021
+5288.409558
+END
+1598750
+id=0, left=199843, right=399685
+id=1, left=399686, right=599528
+id=2, left=599529, right=799371
+id=3, left=799372, right=999214
+id=4, left=999215, right=1199057
+id=5, left=1199058, right=1398900
+id=6, left=1398901, right=1598743
+helper 0 runtime 104.57131
+helper 1 runtime 104.366814
+helper 2 runtime 104.161926
+helper 3 runtime 103.969574
+helper 4 runtime 103.769368
+helper 5 runtime 103.573611
+helper 6 runtime 103.378596
+assign array: 4367.075939
+sort: 797.782588
+threading: 4.601065
+main kruskal: 103.493481
+5291.401949
+END
+1599617
+id=0, left=199952, right=399903
+id=1, left=399904, right=599855
+id=2, left=599856, right=799807
+id=3, left=799808, right=999759
+id=4, left=999760, right=1199711
+id=5, left=1199712, right=1399663
+id=6, left=1399664, right=1599615
+helper 0 runtime 110.631757
+helper 1 runtime 110.44386
+helper 2 runtime 110.229783
+helper 3 runtime 110.048092
+helper 4 runtime 109.823449
+helper 5 runtime 109.605286
+helper 6 runtime 109.387895
+assign array: 4581.633542
+sort: 767.387128
+threading: 4.698892
+main kruskal: 109.513851
+5482.126677
+END
+1598418
+id=0, left=199802, right=399603
+id=1, left=399604, right=599405
+id=2, left=599406, right=799207
+id=3, left=799208, right=999009
+id=4, left=999010, right=1198811
+id=5, left=1198812, right=1398613
+id=6, left=1398614, right=1598415
+helper 0 runtime 104.153565
+helper 1 runtime 103.96778
+helper 2 runtime 103.763761
+helper 3 runtime 103.568421
+helper 4 runtime 103.367195
+helper 5 runtime 103.163694
+helper 6 runtime 102.968618
+assign array: 4368.974245
+sort: 744.972892
+threading: 4.176322
+main kruskal: 103.079559
+5239.994016
+END
+1598121
+id=0, left=199765, right=399529
+id=1, left=399530, right=599294
+id=2, left=599295, right=799059
+id=3, left=799060, right=998824
+id=4, left=998825, right=1198589
+id=5, left=1198590, right=1398354
+id=6, left=1398355, right=1598119
+helper 0 runtime 103.123789
+helper 1 runtime 102.904416
+helper 2 runtime 102.722938
+helper 3 runtime 102.530779
+helper 4 runtime 102.318258
+helper 5 runtime 102.154648
+helper 6 runtime 101.966697
+assign array: 4361.839537
+sort: 759.948235
+threading: 4.533339
+main kruskal: 102.070513
+5246.93219
+END
+1599348
+id=0, left=199918, right=399835
+id=1, left=399836, right=599753
+id=2, left=599754, right=799671
+id=3, left=799672, right=999589
+id=4, left=999590, right=1199507
+id=5, left=1199508, right=1399425
+id=6, left=1399426, right=1599343
+helper 0 runtime 110.602246
+helper 1 runtime 110.400816
+helper 2 runtime 110.217006
+helper 3 runtime 109.988258
+helper 4 runtime 109.799757
+helper 5 runtime 109.577838
+helper 6 runtime 109.410369
+assign array: 4371.824522
+sort: 787.876862
+threading: 4.810327
+main kruskal: 109.517071
+5292.995495
+END
+1599040
+id=0, left=199880, right=399759
+id=1, left=399760, right=599639
+id=2, left=599640, right=799519
+id=3, left=799520, right=999399
+id=4, left=999400, right=1199279
+id=5, left=1199280, right=1399159
+id=6, left=1399160, right=1599039
+helper 0 runtime 103.855793
+helper 1 runtime 103.651524
+helper 2 runtime 103.433826
+helper 3 runtime 103.238991
+helper 4 runtime 103.037393
+helper 5 runtime 102.844617
+helper 6 runtime 102.667605
+assign array: 4378.039725
+sort: 731.45239
+threading: 4.276559
+main kruskal: 102.773001
+5235.174557
+END
